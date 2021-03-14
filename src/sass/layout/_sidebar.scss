@@ -16,14 +16,40 @@
 	}
 	@include t {
 		width: 25.5rem;
-		padding-bottom: 90rem;
 		transform: translateX(-100%);
 		transition: all 0.2s;
+	}
+	@include m {
+		padding: 9.4rem 2rem 7.2rem;
+	}
+
+	&_logo_dark {
+		display: none;
 	}
 
 	&.active {
 		width: 25.5rem;
 		box-shadow: 5px 0 4rem rgb(0 0 0 / 10%);
+		.icon_left {
+			display: none;
+		}
+		.icon_right {
+			display: block;
+		}
+		@include d {
+			.sidebar_logo {
+				display: inline-block;
+			}
+			.switch_in {
+				padding-left: 4.6rem;
+			}
+			.switch_icon {
+				left: 0;
+			}
+			.icon_dark {
+				transform: translateX(0);
+			}
+		}
 		@include t {
 			box-shadow: none;
 			transform: translateX(0);
@@ -179,7 +205,6 @@
 		}
 		@include t {
 			padding: 0 2rem;
-			bottom: 12.5rem;
 		}
 	}
 	.switch {
@@ -244,6 +269,25 @@
 			}
 		}
 	}
+
+	&_signin {
+		display: none;
+		position: absolute;
+		top: 50%;
+		right: 20px;
+		transform: translateY(-50%);
+		.signin {
+			@extend %flex-center;
+			width: 4rem;
+			height: 4rem;
+			border: 1px solid $gray;
+			border-radius: 50%;
+		}
+		@include m {
+			display: inline-block;
+		}
+	}
+
 	.switch_theme .switch_input:checked + .switch_in .switch_box:before {
 		width: 8px;
 		height: 24px;

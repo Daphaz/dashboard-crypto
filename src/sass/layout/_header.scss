@@ -25,6 +25,9 @@
 			visibility: hidden;
 			opacity: 0;
 		}
+		&_dark {
+			display: none;
+		}
 	}
 	&_search {
 		@extend %flex-align;

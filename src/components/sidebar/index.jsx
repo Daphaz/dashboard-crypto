@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { BiMenuAltRight, BiMenuAltLeft, BiSearch } from "react-icons/bi";
-import { GrClose } from "react-icons/gr";
 import {
 	AiOutlineAppstore,
 	AiOutlineBarChart,
 	AiOutlineWallet,
 	AiOutlineCalculator,
 	AiOutlineRead,
+	AiOutlineClose,
 } from "react-icons/ai";
 import { RiLightbulbFlashFill, RiLightbulbFlashLine } from "react-icons/ri";
+import { VscSignIn } from "react-icons/vsc";
 
 export const Sidebar = () => {
 	const [toggle, setToggle] = useState(false);
@@ -31,16 +32,32 @@ export const Sidebar = () => {
 		document.querySelector(".header_logo").classList.remove("hidden");
 	};
 
+	const handleActiveSidebar = () => {
+		const side = document.querySelector(".sidebar");
+		side.classList.toggle("active");
+	};
+
 	return (
 		<aside className="sidebar">
 			<div className="sidebar_head">
-				<div className="sidebar_logo">Cryptos.</div>
-				<button className="btn sidebar_toggle">
+				<div className="sidebar_logo">
+					<img
+						src="/assets/logo.png"
+						alt="logo krypto"
+						className="sidebar_logo_light"
+					/>
+					<img
+						src="/assets/logo-dark.png"
+						alt="logo krypto"
+						className="sidebar_logo_dark"
+					/>
+				</div>
+				<button className="btn sidebar_toggle" onClick={handleActiveSidebar}>
 					<BiMenuAltRight className="icon icon_right" />
 					<BiMenuAltLeft className="icon icon_left" />
 				</button>
 				<button className="btn sidebar_close" onClick={closeSidebar}>
-					<GrClose className="icon icon_close" />
+					<AiOutlineClose className="icon icon_close" />
 				</button>
 			</div>
 			<div className="sidebar_body">
@@ -104,6 +121,13 @@ export const Sidebar = () => {
 						</span>
 					</span>
 				</label>
+				<div className="sidebar_signin">
+					<div className="signin">
+						<button className="btn">
+							<VscSignIn className="icon" />
+						</button>
+					</div>
+				</div>
 			</div>
 		</aside>
 	);

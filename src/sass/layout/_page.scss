@@ -37,13 +37,22 @@
 	.sidebar {
 		background: $dark-bg;
 		border-color: $dark-border;
+
+		&_logo_dark {
+			display: block;
+		}
+
+		&_logo_light {
+			display: none;
+		}
+
 		&_input {
 			background: $dark-active;
 			color: $white;
 		}
 		.icon_search,
 		.icon_close {
-			fill: $white;
+			fill: $gray;
 		}
 		&_item {
 			&:hover {
@@ -56,6 +65,14 @@
 				background: $dark-active;
 				color: $blue-light;
 			}
+		}
+	}
+	.header_logo {
+		&_dark {
+			display: block;
+		}
+		&_light {
+			display: none;
 		}
 	}
 	.header_border:before {

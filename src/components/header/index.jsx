@@ -31,7 +31,18 @@ export const Header = () => {
 
 	return (
 		<header className="header header_border">
-			<div className="header_logo">Cryptos</div>
+			<div className="header_logo">
+				<img
+					src="/assets/logo_mobile.png"
+					alt="logo mobile light"
+					className="header_logo_light"
+				/>
+				<img
+					src="/assets/logo_mobile-dark.png"
+					alt="logo mobile light"
+					className="header_logo_dark"
+				/>
+			</div>
 			<form className="header_search">
 				<input
 					className="header_input"
