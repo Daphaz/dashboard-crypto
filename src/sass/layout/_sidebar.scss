@@ -1,0 +1,297 @@
+.sidebar {
+	@extend %flex-col;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 15;
+	width: 25.5rem;
+	background: $white;
+	border-right: 1px solid $gray-light;
+	padding: 13.2rem 2rem 7.2rem;
+	transition: width 0.2s;
+	@include d {
+		padding-top: 12rem;
+		width: 9.6rem;
+	}
+	@include t {
+		width: 25.5rem;
+		transform: translateX(-100%);
+		transition: all 0.2s;
+	}
+	@include m {
+		padding: 9.4rem 2rem 7.2rem;
+	}
+
+	&_logo_dark {
+		display: none;
+	}
+
+	&.active {
+		width: 25.5rem;
+		box-shadow: 5px 0 4rem rgb(0 0 0 / 10%);
+		.icon_left {
+			display: none;
+		}
+		.icon_right {
+			display: block;
+		}
+		@include d {
+			.sidebar_logo {
+				display: inline-block;
+			}
+			.switch_in {
+				padding-left: 4.6rem;
+			}
+			.switch_icon {
+				left: 0;
+			}
+			.icon_dark {
+				transform: translateX(0);
+			}
+		}
+		@include t {
+			box-shadow: none;
+			transform: translateX(0);
+		}
+	}
+
+	&_head {
+		@extend %flex-center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 13.2rem;
+		padding-top: 1.2rem;
+		@include d {
+			height: 12rem;
+			padding: 0;
+		}
+	}
+	&_logo {
+		display: inline-block;
+		margin-right: 2.8rem;
+		@include d {
+			display: none;
+		}
+		@include t {
+			display: inline-block;
+		}
+	}
+	&_toggle {
+		font-size: 2.4rem;
+		svg {
+			transition: transform 0.2s;
+		}
+		.icon_left {
+			display: none;
+		}
+		@include d {
+			.icon_left {
+				display: block;
+			}
+			.icon_right {
+				display: none;
+			}
+		}
+		@include t {
+			display: none;
+		}
+	}
+	&_close {
+		display: none;
+		margin-left: 0.8rem;
+		@include t {
+			display: inline-block;
+		}
+	}
+
+	&_body {
+		@extend %flex-col;
+		overflow: auto;
+		overflow-x: hidden;
+		flex-grow: 1;
+		scrollbar-width: none;
+		@include t {
+			overflow: visible;
+		}
+	}
+	&_nav {
+		margin-bottom: 3.2rem;
+	}
+	&_item {
+		@extend %pointer;
+		@extend %flex-align;
+		height: 5.6rem;
+		padding: 0 2rem;
+		border-radius: 1.2rem;
+		white-space: nowrap;
+		font-weight: 600;
+		color: $gray;
+		transition: all 0.2s;
+		@include d {
+			padding: 0 1.6rem;
+		}
+		&.active {
+			background-color: $gray-dark;
+			color: $blue;
+			.icon {
+				fill: $blue;
+			}
+		}
+		&:hover {
+			color: $blue;
+			.icon {
+				fill: $blue;
+			}
+		}
+	}
+	&_icon {
+		@extend %flex-center;
+		position: relative;
+		flex-shrink: 0;
+		width: 2.4rem;
+		height: 2.4rem;
+		svg {
+			font-size: 2.4rem;
+		}
+	}
+	&_text {
+		margin-left: 1.6rem;
+		font-size: 1.4rem;
+	}
+	&_search {
+		display: none;
+		position: relative;
+		margin-top: auto;
+		flex-shrink: 0;
+		button {
+			position: absolute;
+			top: 0;
+			right: 1.4rem;
+			bottom: 0;
+			width: 2.4rem;
+		}
+		@include t {
+			display: block;
+		}
+	}
+	&_input {
+		outline: none;
+		width: 100%;
+		height: 5.6rem;
+		padding: 0 5.6rem 0 2.4rem;
+		background: $gray-dark;
+		border: none;
+		border-radius: 12rem;
+		font-family: "Inter", sans-serif;
+		font-size: 1.4rem;
+		font-weight: 600;
+		color: #11142d;
+	}
+
+	&_bottom {
+		@extend %flex-align;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 7.2rem;
+		padding: 0 2rem;
+		transition: padding 0.2s;
+		@include d {
+			padding: 0 1.2rem;
+		}
+		@include t {
+			padding: 0 2rem;
+		}
+	}
+	.switch {
+		@extend %pointer;
+		display: inline-block;
+		position: relative;
+		user-select: none;
+		transition: opacity 0.25s;
+		&_input {
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+		}
+		&_in {
+			display: inline-block;
+			position: relative;
+			padding-left: 4.6rem;
+			transition: padding 0.2s;
+			@include d {
+				padding: 0;
+			}
+			@include t {
+				padding-left: 4.6rem;
+			}
+		}
+		&_box {
+			position: relative;
+			display: block;
+			width: 7.2rem;
+			height: 3.2rem;
+			background: rgba(228, 228, 228, 0.4);
+			border-radius: 1.6rem;
+			transition: all 0.2s;
+			&::before {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 4px;
+				transform: translateY(-50%);
+				width: 24px;
+				height: 24px;
+				border-radius: 50%;
+				background: $blue-light;
+				transition: all 0.2s;
+			}
+		}
+		&_icon {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			@include d {
+				left: 4.3rem;
+			}
+			@include t {
+				left: 0;
+			}
+			transform: translateY(-50%);
+			svg {
+				font-size: 2.4rem;
+				fill: $gray;
+			}
+		}
+	}
+
+	&_signin {
+		display: none;
+		position: absolute;
+		top: 50%;
+		right: 20px;
+		transform: translateY(-50%);
+		.signin {
+			@extend %flex-center;
+			width: 4rem;
+			height: 4rem;
+			border: 1px solid $gray;
+			border-radius: 50%;
+		}
+		@include m {
+			display: inline-block;
+		}
+	}
+
+	.switch_theme .switch_input:checked + .switch_in .switch_box:before {
+		width: 8px;
+		height: 24px;
+		border-radius: 4px;
+		transform: translate(48px, -50%);
+	}
+}

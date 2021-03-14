@@ -20,9 +20,29 @@ export const Header = () => {
 		});
 	};
 
+	const toogleSidebarActive = () => {
+		const side = document.querySelector(".sidebar");
+		side.classList.toggle("active");
+		document.body.classList.toggle("no-scroll");
+		document.querySelector("html").classList.toggle("no-scroll");
+		document.querySelector(".page").classList.toggle("toggle");
+		document.querySelector(".header_logo").classList.toggle("hidden");
+	};
+
 	return (
 		<header className="header header_border">
-			<div className="header_logo">Cryptos</div>
+			<div className="header_logo">
+				<img
+					src="/assets/logo_mobile.png"
+					alt="logo mobile light"
+					className="header_logo_light"
+				/>
+				<img
+					src="/assets/logo_mobile-dark.png"
+					alt="logo mobile light"
+					className="header_logo_dark"
+				/>
+			</div>
 			<form className="header_search">
 				<input
 					className="header_input"
@@ -142,7 +162,7 @@ export const Header = () => {
 						</button>
 					</div>
 				</div>
-				<button className="btn header_toggle">
+				<button className="btn header_toggle" onClick={toogleSidebarActive}>
 					<BiMenuAltRight className="icon" />
 				</button>
 			</div>
