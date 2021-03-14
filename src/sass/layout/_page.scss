@@ -20,6 +20,64 @@
 		transition: transform 0.2s;
 	}
 }
+
+.page_row {
+	display: flex;
+	flex-grow: 1;
+	@include w {
+		padding: 0 6.4rem 6.4rem;
+	}
+	@include x {
+		padding: 0 4.8rem 6.4rem;
+	}
+	@include d {
+		display: block;
+		padding: 0 6.4rem 6.4rem;
+	}
+	@include m {
+		padding: 0 1.6rem 3.2rem;
+	}
+	.page_col {
+		padding: 0 6.4rem 6.4rem;
+		@include w {
+			padding: 0;
+		}
+		&:first-child {
+			flex: 0 0 calc(100% - 42.6rem);
+			max-width: calc(100% - 42.6rem);
+			@include w {
+				flex: 0 0 calc(100% - 29rem);
+				max-width: calc(100% - 29rem);
+				padding-right: 6.4rem;
+			}
+			@include x {
+				padding-right: 4.8rem;
+			}
+			@include d {
+				max-width: 100%;
+				margin-bottom: 6.4rem;
+				padding: 0;
+			}
+			@include m {
+				margin-bottom: 4.2rem;
+			}
+		}
+		&:nth-child(2) {
+			flex: 0 0 42.6rem;
+			width: 42.6rem;
+			border-left: 1px solid $gray-light;
+			@include w {
+				flex: 0 0 29rem;
+				width: 29rem;
+				border: none;
+			}
+			@include d {
+				width: 100%;
+			}
+		}
+	}
+}
+
 .page.toggle .page_content {
 	@include t {
 		transform: translateX(25.5rem);

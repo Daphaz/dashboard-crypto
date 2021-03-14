@@ -1,15 +1,16 @@
 import React from "react";
-import { Header } from "../../components/header";
-import { Sidebar } from "../../components/sidebar";
+import { Layout } from "../../components/Layout";
 
 const Home = () => {
 	return (
-		<div className="page">
-			<Sidebar />
-			<div className="page_content">
-				<Header />
+		<Layout>
+			<div className="page_col">
+				<h1>Home</h1>
 			</div>
-		</div>
+			<div className="page_col">
+				<h1>Home 2</h1>
+			</div>
+		</Layout>
 	);
 };
 
