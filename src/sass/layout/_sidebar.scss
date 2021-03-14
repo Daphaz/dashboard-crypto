@@ -28,15 +28,34 @@
 	}
 
 	&.active {
-		width: 25.5rem;
-		box-shadow: 5px 0 4rem rgb(0 0 0 / 10%);
-		.icon_left {
+		width: 9.6rem;
+		transition: all 0.2s;
+		.sidebar_logo {
 			display: none;
 		}
-		.icon_right {
+		.icon_left {
 			display: block;
 		}
+		.icon_right {
+			display: none;
+		}
+
+		.sidebar_bottom {
+			padding: 0 1.2rem;
+		}
+		.switch_in {
+			padding: 0;
+		}
+		.switch_icon {
+			left: 4.6rem;
+			.icon_dark {
+				transform: translateX(-4rem);
+			}
+		}
+
 		@include d {
+			width: 25.5rem;
+			box-shadow: 5px 0 4rem rgb(0 0 0 / 10%);
 			.sidebar_logo {
 				display: inline-block;
 			}
@@ -48,6 +67,12 @@
 			}
 			.icon_dark {
 				transform: translateX(0);
+			}
+			.icon_left {
+				display: none;
+			}
+			.icon_right {
+				display: block;
 			}
 		}
 		@include t {

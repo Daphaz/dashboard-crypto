@@ -23,7 +23,10 @@ const Logic = () => {
 
 	const handleActiveSidebar = () => {
 		const side = document.querySelector(".sidebar");
+		const page = document.querySelector(".page");
+		console.log(page);
 		side.classList.toggle("active");
+		page.classList.toggle("wide");
 	};
 
 	return {

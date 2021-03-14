@@ -1,5 +1,10 @@
 .page {
 	overflow: hidden;
+	&.wide {
+		.page_content {
+			padding-left: 9.6rem;
+		}
+	}
 }
 .page_content {
 	display: flex;
