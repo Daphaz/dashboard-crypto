@@ -7,7 +7,9 @@
 @import "base/base", "base/typography";
 
 // Layout
+@import "./layout/page", "./layout/header";
 
 // Components
+@import "./components/icons", "./components/buttons";
 
 // Pages

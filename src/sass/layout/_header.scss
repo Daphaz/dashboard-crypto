@@ -1,0 +1,286 @@
+.header {
+	@extend %flex-align;
+	position: relative;
+	padding: 4.8rem 6.4rem 3.6rem;
+	z-index: 10;
+	@include x {
+		padding: 4.8rem 4.8rem 3.6rem;
+	}
+	@include d {
+		padding: 3.6rem 6.4rem;
+	}
+	@include t {
+		padding: 3.2rem 6.4rem;
+	}
+	@include m {
+		padding: 2.4rem 1.6rem;
+	}
+	&_logo {
+		display: none;
+		margin-right: auto;
+		@include t {
+			display: inline-block;
+		}
+	}
+	&_search {
+		@extend %flex-align;
+		position: relative;
+		flex-shrink: 0;
+		width: 21rem;
+		margin-right: auto;
+		.header_input {
+			outline: none;
+			width: 100%;
+			height: 4.8rem;
+			padding-right: 3.2rem;
+			background: none;
+			border: none;
+			font-family: $rubik;
+			font-size: 1.4rem;
+			font-weight: 600;
+			color: $black;
+		}
+		@include t {
+			display: none;
+		}
+	}
+	&_group {
+		@extend %flex-align;
+		margin-left: auto;
+	}
+	&_item {
+		position: relative;
+		&-notifications,
+		&-download,
+		&-lang {
+			&.active {
+				.header_body {
+					visibility: visible;
+					opacity: 1;
+				}
+				.chevronLang {
+					transform: rotate(0deg);
+				}
+			}
+		}
+		&-download {
+			margin-right: 2.2rem;
+			.header_head {
+				width: 2.4rem;
+				height: 2.4rem;
+				svg {
+					transition: fill 0.2s;
+					&:hover {
+						color: $blue;
+					}
+				}
+			}
+			.header_body {
+				top: calc(100% + 2.2rem);
+				left: 50%;
+				width: 33.8rem;
+				padding: 3.2rem;
+				transform: translateX(-50%);
+				border: 1px solid $gray-light;
+				box-shadow: 0 0.5rem 2rem rgb(17 20 45 / 7%);
+			}
+			.header_row {
+				display: flex;
+			}
+			.header_col {
+				&:first-child {
+					flex-grow: 1;
+					padding-right: 4rem;
+				}
+				&:last-child {
+					flex-shrink: 0;
+					width: 9.4rem;
+				}
+				&-label {
+					margin-bottom: 1.2rem;
+					font-size: 1.4rem;
+					font-weight: 600;
+					color: $gray;
+				}
+				&-download:not(:last-child) {
+					margin-bottom: 1.2rem;
+				}
+			}
+		}
+		&-notifications {
+			margin-right: 4rem;
+			.header_head {
+				position: relative;
+				width: 3.4rem;
+				height: 2rem;
+				&.active {
+					&::before {
+						position: absolute;
+						top: 0;
+						right: 0;
+						content: "";
+						width: 0.7rem;
+						height: 0.7rem;
+						background-color: $red;
+						border-radius: 50%;
+					}
+				}
+			}
+			.header_body {
+				top: calc(100% + 1.5rem);
+				left: 50%;
+				transform: translateX(-50%);
+				width: 37.5rem;
+				padding: 0 2.4rem 3.2rem;
+				box-shadow: 0 1.5rem 3rem rgb(17 20 45 / 10%);
+				.notifications {
+					margin-bottom: 2.4rem;
+				}
+				.notification {
+					display: flex;
+					padding: 2rem 0;
+					&:not(:last-child) {
+						border-bottom: 1px solid $gray-light;
+					}
+					&_icon {
+						@extend %flex-center;
+						flex-shrink: 0;
+						width: 4.8rem;
+						height: 4.8rem;
+						margin-right: 2.4rem;
+						border-radius: 50%;
+						background: $gradient-green;
+						svg {
+							color: $white;
+						}
+					}
+					&_detail {
+						flex-grow: 1;
+					}
+					&_info {
+						margin-bottom: 0.8rem;
+						font-size: 1.6rem;
+						line-height: 125%;
+						font-weight: 600;
+					}
+					&_line {
+						@extend %flex-between;
+						align-items: center;
+						.time {
+							font-size: 1.4rem;
+							font-weight: 600;
+							color: $gray;
+						}
+						.view {
+							flex-shrink: 0;
+							width: 12px;
+							height: 12px;
+							background: $blue-light;
+							border-radius: 50%;
+						}
+					}
+				}
+			}
+		}
+		&-lang {
+			font-weight: 600;
+			.chevronLang {
+				transform: rotate(-180deg);
+				transition: transform 0.2s ease;
+			}
+			.header_head button {
+				span {
+					padding-right: 4.2rem;
+				}
+				font-size: 1.3rem;
+				@extend %flex-align;
+			}
+			.header_body {
+				top: calc(100% + 2.2rem);
+				right: -1.5rem;
+				width: 30rem;
+				border: 1px solid $gray-light;
+				border-radius: 2rem;
+				box-shadow: 0 0.5rem 2rem rgb(17 20 45 / 7%);
+			}
+			.header_lang {
+				display: flex;
+			}
+			.header_cel {
+				flex: 0 0 50%;
+				width: 50%;
+				padding: 2.4rem 2.2rem;
+				&:first-child {
+					border-right: 1px solid $gray-light;
+				}
+			}
+			.header_link {
+				@extend %flex-align;
+				height: 2.4rem;
+				font-size: 1.4rem;
+				font-weight: 600;
+				color: $gray;
+				transition: color 0.2s;
+				&:not(:last-child) {
+					margin-bottom: 1.2rem;
+				}
+				&:hover,
+				&.active {
+					color: $blue;
+				}
+			}
+			.header_flag {
+				margin-right: 1.6rem;
+			}
+		}
+		&-signin {
+			flex-shrink: 0;
+			width: 4.8rem;
+			margin-left: 3.6rem;
+			button {
+				width: 4.8rem;
+				height: 4.8rem;
+				border-radius: 50%;
+				border: 1px solid $gray;
+				transition: all 0.2s;
+				&:hover {
+					background-color: $blue;
+					.icon {
+						color: $white;
+					}
+				}
+			}
+		}
+	}
+	&_body {
+		position: absolute;
+		background: $white;
+		border-radius: 2rem;
+		transition: all 0.2s;
+		visibility: hidden;
+		opacity: 0;
+	}
+	&_toggle {
+		display: none;
+		flex-shrink: 0;
+		width: 4rem;
+		height: 4rem;
+		margin-left: 3.2rem;
+		@include t {
+			display: inline-block;
+		}
+	}
+}
+
+.header_border:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 42.5rem;
+	bottom: 0;
+	width: 1px;
+	background: $gray-light;
+	@include w {
+		display: none;
+	}
+}

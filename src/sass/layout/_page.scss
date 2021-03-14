@@ -1,0 +1,17 @@
+.page {
+	overflow: hidden;
+}
+.page_content {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	padding-left: 25.5rem;
+	transition: padding 0.2s;
+	@include d {
+		padding-left: 9.6rem;
+	}
+	@include t {
+		padding-left: 0;
+		transition: transform 0.2s;
+	}
+}

@@ -30,10 +30,3 @@ $gradient-purple: radial-gradient(
 	#6c5dd3 100%
 );
 $gradient-green: linear-gradient(223.58deg, #86e1a0 12.52%, #4fbf67 75.73%);
-
-/// Breakpoints
-$breakpoints: (
-	"small": 320px,
-	"medium": 768px,
-	"large": 1024px,
-) !default;
