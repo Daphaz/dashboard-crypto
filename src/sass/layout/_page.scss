@@ -15,3 +15,75 @@
 		transition: transform 0.2s;
 	}
 }
+.page.toggle .page_content {
+	@include t {
+		transform: translateX(25.5rem);
+	}
+}
+
+// Dark Mode
+.dark {
+	background: $dark-bg;
+	color: $white;
+	.icon_dark {
+		display: block;
+	}
+	.icon_light {
+		display: none;
+	}
+	.chevronLang {
+		color: $white;
+	}
+	.sidebar {
+		background: $dark-bg;
+		border-color: $dark-border;
+		&_input {
+			background: $dark-active;
+			color: $white;
+		}
+		.icon_search,
+		.icon_close {
+			fill: $white;
+		}
+		&_item {
+			&:hover {
+				color: $gray-light;
+				.icon {
+					fill: $gray-light;
+				}
+			}
+			&.active {
+				background: $dark-active;
+				color: $blue-light;
+			}
+		}
+	}
+	.header_border:before {
+		background: $dark-border;
+	}
+	.header_item {
+		.header_head {
+			color: $white;
+		}
+		.header_body {
+			border-color: $dark-border;
+			background-color: $dark-color;
+		}
+		&-lang {
+			.header_cel:first-child {
+				border-right: 1px solid $dark-border;
+			}
+		}
+		&-notifications {
+			.header_body {
+				.notification:not(:last-child) {
+					border-bottom: 1px solid $dark-border;
+				}
+			}
+		}
+	}
+}
+
+.no-scroll {
+	overflow: hidden;
+}

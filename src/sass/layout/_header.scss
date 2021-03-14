@@ -21,6 +21,10 @@
 		@include t {
 			display: inline-block;
 		}
+		&.hidden {
+			visibility: hidden;
+			opacity: 0;
+		}
 	}
 	&_search {
 		@extend %flex-align;
@@ -106,6 +110,9 @@
 					margin-bottom: 1.2rem;
 				}
 			}
+			@include m {
+				display: none;
+			}
 		}
 		&-notifications {
 			margin-right: 4rem;
@@ -133,6 +140,14 @@
 				width: 37.5rem;
 				padding: 0 2.4rem 3.2rem;
 				box-shadow: 0 1.5rem 3rem rgb(17 20 45 / 10%);
+				@include m {
+					top: 100%;
+					left: 0;
+					right: 0;
+					width: auto;
+					transform: translateX(0);
+					box-shadow: 0 10px 30px rgb(17 20 45 / 20%);
+				}
 				.notifications {
 					margin-bottom: 2.4rem;
 				}
@@ -180,6 +195,10 @@
 						}
 					}
 				}
+			}
+			@include m {
+				position: static;
+				margin-right: 2.4rem;
 			}
 		}
 		&-lang {
@@ -232,6 +251,9 @@
 			.header_flag {
 				margin-right: 1.6rem;
 			}
+			@include m {
+				display: none;
+			}
 		}
 		&-signin {
 			flex-shrink: 0;
@@ -249,6 +271,9 @@
 						color: $white;
 					}
 				}
+			}
+			@include m {
+				display: none;
 			}
 		}
 	}
@@ -268,6 +293,9 @@
 		margin-left: 3.2rem;
 		@include t {
 			display: inline-block;
+		}
+		@include m {
+			margin: 0;
 		}
 	}
 }
