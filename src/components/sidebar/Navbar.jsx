@@ -1,45 +1,30 @@
 import React from "react";
-import {
-	AiOutlineAppstore,
-	AiOutlineBarChart,
-	AiOutlineWallet,
-	AiOutlineCalculator,
-	AiOutlineRead,
-} from "react-icons/ai";
+import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 
-export const Navbar = () => {
+const mapStateToProps = (state) => {
+	return {
+		navItems: state.navItems,
+	};
+};
+
+const Navbar = ({ navItems }) => {
 	return (
 		<nav className="sidebar_nav">
-			<div className="sidebar_item active">
-				<div className="sidebar_icon">
-					<AiOutlineAppstore className="icon" />
-				</div>
-				<div className="sidebar_text">Home</div>
-			</div>
-			<div className="sidebar_item">
-				<div className="sidebar_icon">
-					<AiOutlineBarChart className="icon" />
-				</div>
-				<div className="sidebar_text">Prices</div>
-			</div>
-			<div className="sidebar_item">
-				<div className="sidebar_icon">
-					<AiOutlineWallet className="icon" />
-				</div>
-				<div className="sidebar_text">Wallets</div>
-			</div>
-			<div className="sidebar_item">
-				<div className="sidebar_icon">
-					<AiOutlineCalculator className="icon" />
-				</div>
-				<div className="sidebar_text">Arbitrage</div>
-			</div>
-			<div className="sidebar_item">
-				<div className="sidebar_icon">
-					<AiOutlineRead className="icon" />
-				</div>
-				<div className="sidebar_text">News</div>
-			</div>
+			{navItems.length > 0 &&
+				navItems.map((item) => {
+					const { id, Icon, label, path } = item;
+					return (
+						<NavLink to={path} className="sidebar_item" key={id}>
+							<div className="sidebar_icon">
+								<Icon className="icon" />
+							</div>
+							<div className="sidebar_text">{label}</div>
+						</NavLink>
+					);
+				})}
 		</nav>
 	);
 };
+
+export default connect(mapStateToProps)(Navbar);

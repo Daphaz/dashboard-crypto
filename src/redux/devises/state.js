@@ -1,18 +1,22 @@
 export const Devises = [
 	{
 		id: 0,
-		label: "USD",
+		devise: "USD",
+		active: true,
 	},
 	{
 		id: 1,
-		label: "EUR",
+		devise: "EUR",
+		active: false,
 	},
 	{
 		id: 2,
-		label: "JPY",
+		devise: "JPY",
+		active: false,
 	},
 	{
 		id: 3,
-		label: "BTC",
+		devise: "BTC",
+		active: false,
 	},
 ];
