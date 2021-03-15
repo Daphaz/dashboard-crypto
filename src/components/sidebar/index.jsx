@@ -1,7 +1,7 @@
 import React from "react";
 import { BiMenuAltRight, BiMenuAltLeft } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
-import { Navbar } from "./Navbar";
+import Navbar from "./Navbar";
 import { Search } from "./Search";
 import { SwitchTheme } from "./SwitchTheme";
 import { SignIn } from "./SignIn";

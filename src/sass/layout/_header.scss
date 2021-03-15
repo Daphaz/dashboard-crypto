@@ -237,6 +237,7 @@
 				}
 			}
 			.header_link {
+				@extend %pointer;
 				@extend %flex-align;
 				height: 2.4rem;
 				font-size: 1.4rem;

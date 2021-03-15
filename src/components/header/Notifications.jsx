@@ -1,9 +1,15 @@
 import React from "react";
 import { BiBell } from "react-icons/bi";
-import { VscOutput } from "react-icons/vsc";
 import Logic from "./Logic";
+import { connect } from "react-redux";
 
-export const Notifications = () => {
+const mapStateToProps = (state) => {
+	return {
+		notifications: state.notifications,
+	};
+};
+
+const Notifications = ({ notifications }) => {
 	const { toggleActive } = Logic();
 
 	return (
@@ -17,34 +23,24 @@ export const Notifications = () => {
 			</div>
 			<div className="header_body">
 				<div className="notifications">
-					<div className="notification">
-						<div className="notification_icon">
-							<VscOutput className="icon" />
-						</div>
-						<div className="notification_detail">
-							<div className="notification_info">
-								Wrapped Bitcoin is now listed on Unity Exchange
-							</div>
-							<div className="notification_line">
-								<span className="time">24m ago</span>
-								<span className="view"></span>
-							</div>
-						</div>
-					</div>
-					<div className="notification">
-						<div className="notification_icon">
-							<VscOutput className="icon" />
-						</div>
-						<div className="notification_detail">
-							<div className="notification_info">
-								Wrapped Bitcoin is now listed on Unity Exchange
-							</div>
-							<div className="notification_line">
-								<span className="time">24m ago</span>
-								<span className="view"></span>
-							</div>
-						</div>
-					</div>
+					{notifications.length > 0 &&
+						notifications.map((notif) => {
+							const { id, Icon, status, title, time } = notif;
+							return (
+								<div className="notification" key={id}>
+									<div className="notification_icon">
+										<Icon className="icon" />
+									</div>
+									<div className="notification_detail">
+										<div className="notification_info">{title}</div>
+										<div className="notification_line">
+											<span className="time">{time}</span>
+											{status && <span className="view"></span>}
+										</div>
+									</div>
+								</div>
+							);
+						})}
 				</div>
 				<button className="btn header_btn btn_blue btn_full">
 					See all notifications
@@ -53,3 +49,5 @@ export const Notifications = () => {
 		</div>
 	);
 };
+
+export default connect(mapStateToProps)(Notifications);

@@ -154,6 +154,7 @@
 		white-space: nowrap;
 		font-weight: 600;
 		color: $gray;
+		text-decoration: none;
 		transition: all 0.2s;
 		@include d {
 			padding: 0 1.6rem;
