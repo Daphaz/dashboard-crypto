@@ -162,6 +162,21 @@
 			}
 		}
 	}
+	.page_row {
+		.page_col:nth-child(2) {
+			border-left-color: $dark-border;
+		}
+	}
+	.slider {
+		&_btn,
+		&_close {
+			background-color: $dark-color;
+			color: $white;
+			svg {
+				fill: $white;
+			}
+		}
+	}
 }
 
 .no-scroll {

@@ -10,6 +10,9 @@
 @import "./layout/page", "./layout/header", "./layout/sidebar";
 
 // Components
-@import "./components/icons", "./components/buttons";
+@import "./components/icons", "./components/buttons", "./components/slider";
 
 // Pages
+
+//Vendor
+@import "./vendor/owl.carousel";
