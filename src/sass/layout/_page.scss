@@ -126,8 +126,10 @@
 			}
 			&.active {
 				background: $dark-active;
-				color: $blue-light;
 			}
+		}
+		.switch_box {
+			background: $dark-border;
 		}
 	}
 	.header_logo {
@@ -177,8 +179,92 @@
 			}
 		}
 	}
+	.icon-current {
+		svg {
+			fill: $white;
+		}
+	}
+	.widgets {
+		&_variants {
+			.widgets_link.active {
+				background-color: $dark-active;
+			}
+		}
+		.select .list {
+			background-color: $dark-active;
+			border: 1px solid $dark-border;
+		}
+		.select:not(.select_empty) {
+			background: rgba(228, 228, 228, 0.03);
+		}
+		.select .option:hover:not(.option.selected) {
+			color: $white;
+		}
+		@include m {
+			.select {
+				background: rgba(228, 228, 228, 0.03);
+			}
+		}
+	}
 }
 
 .no-scroll {
 	overflow: hidden;
+}
+
+.desktop {
+	&-hide {
+		@include d {
+			display: none !important;
+		}
+	}
+	&-show {
+		display: none !important;
+		@include d {
+			display: block !important;
+		}
+	}
+	&-text-right {
+		@include d {
+			text-align: right !important;
+		}
+	}
+}
+
+.tablet {
+	&-hide {
+		@include t {
+			display: none !important;
+		}
+	}
+	&-show {
+		display: none !important;
+		@include t {
+			display: block !important;
+		}
+	}
+	&-text-right {
+		@include t {
+			text-align: right !important;
+		}
+	}
+}
+
+.mobile {
+	&-hide {
+		@include m {
+			display: none !important;
+		}
+	}
+	&-show {
+		display: none !important;
+		@include m {
+			display: block !important;
+		}
+	}
+	&-text-right {
+		@include m {
+			text-align: right !important;
+		}
+	}
 }

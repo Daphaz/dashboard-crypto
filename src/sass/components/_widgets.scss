@@ -1,0 +1,45 @@
+.widgets {
+	&_sorting {
+		display: flex;
+		margin-bottom: 3.2rem;
+		@include m {
+			margin: 0 -0.8rem 2.4rem;
+		}
+		.select {
+			margin-top: 0.8rem;
+			margin-left: 3rem;
+			@include m {
+				margin: 0;
+			}
+		}
+	}
+	&_variants {
+		display: flex;
+		flex-wrap: wrap;
+		margin: -0.8rem auto 0 -0.8rem;
+		.widgets_link {
+			@extend %pointer;
+			font-size: 1.4rem;
+			min-width: 10rem;
+			margin: 8px 0 0 8px;
+			padding: 0 8px;
+			border-radius: 2rem;
+			text-align: center;
+			font-weight: 600;
+			line-height: 4rem;
+			color: $gray;
+			transition: all 0.2s;
+			&.active {
+				background: rgba(228, 228, 228, 0.2);
+				color: $blue;
+			}
+		}
+	}
+	&_select {
+		@include m {
+			flex: 0 0 calc(50% - 1.6rem);
+			width: calc(50% - 1.6rem);
+			margin: 0 8px;
+		}
+	}
+}
