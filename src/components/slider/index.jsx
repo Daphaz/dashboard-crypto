@@ -1,87 +1,69 @@
-import React, { useRef, useState, useEffect } from "react";
+import React from "react";
+import OwlCarousel from "react-owl-carousel2";
+import { AiOutlineClose } from "react-icons/ai";
 
-const slides = [{ id: 0 }, { id: 1 }, { id: 2 }];
+const options = {
+	items: 1,
+	nav: false,
+	dots: true,
+	loop: true,
+	smartSpeed: 700,
+};
 
 export const Slider = () => {
-	const [toggle, setToggle] = useState(false);
-	const [width, setWidth] = useState(0);
-	const [startX, setStartX] = useState(0);
-	const [leftFinish, setLeftFinish] = useState(0);
-	const slider = useRef();
-	const sliderInner = useRef();
-
-	const Resize = () => {
-		setWidth(slider.current.clientWidth);
-	};
-
-	useEffect(() => {
-		window.addEventListener("resize", Resize);
-
-		return () => window.removeEventListener("resize", Resize);
-	});
-
-	useEffect(() => {
-		if (slider.current) {
-			setWidth(slider.current.clientWidth);
-		}
-	}, [slider]);
-
-	const handleMouseDown = (e) => {
-		setStartX(e.clientX - sliderInner.current.offsetLeft);
-		slider.current.style.cursor = "grabbing";
-		setToggle(true);
-	};
-
-	const handleMouseEnter = () => {
-		slider.current.style.cursor = "grab";
-	};
-
-	const handleMouseUp = () => {
-		slider.current.style.cursor = "grab";
-		setToggle(false);
-	};
-
-	const handleMouseLeave = () => {
-		slider.current.style.cursor = "default";
-	};
-
-	const handleMouseMouve = (e) => {
-		if (!toggle) return;
-		e.preventDefault();
-
-		sliderInner.current.style.left = `${e.clientX - startX}px`;
-		setLeftFinish(e.clientX - startX);
-
-		checkBoundary();
-	};
-
-	function checkBoundary() {
-		let outer = slider.current.getBoundingClientRect();
-		let inner = sliderInner.current.getBoundingClientRect();
-
-		if (parseInt(sliderInner.current.style.left) > 0) {
-			sliderInner.current.style.left = "0px";
-		} else if (inner.right < outer.right) {
-			sliderInner.current.style.left = `-${inner.width - outer.width}px`;
-		}
-	}
-
 	return (
-		<div
-			className="slider"
-			ref={slider}
-			onPointerDown={handleMouseDown}
-			onPointerEnter={handleMouseEnter}
-			onPointerUp={handleMouseUp}
-			onPointerLeave={handleMouseLeave}
-			onPointerMove={handleMouseMouve}>
-			<div
-				className="slider_inner"
-				ref={sliderInner}
-				style={{ width: width * slides.length + (slides.length + 1) * 5 }}>
-				{slides.map((slide) => (
-					<div className="slider_img" key={slide.id} style={{ width }}></div>
-				))}
+		<div className="slider">
+			<button className="btn slider_close">
+				<AiOutlineClose className="icon_close" />
+			</button>
+			<div className="slider_container">
+				<OwlCarousel options={options}>
+					<div className="slider_item">
+						<div className="slider_warp">
+							<div className="slider_date">March 2021</div>
+							<div className="slider_title">Asset Delisting update</div>
+							<div className="slider_info">
+								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+							</div>
+							<button className="btn slider_btn btn_white">
+								Find out more
+							</button>
+						</div>
+						<div className="slider_preview">
+							<img src="/assets/figures-1.png" alt="slider illustration" />
+						</div>
+					</div>
+					<div className="slider_item">
+						<div className="slider_warp">
+							<div className="slider_date">March 2021</div>
+							<div className="slider_title">Asset Delisting update</div>
+							<div className="slider_info">
+								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+							</div>
+							<button className="btn slider_btn btn_white">
+								Find out more
+							</button>
+						</div>
+						<div className="slider_preview">
+							<img src="/assets/figures-1.png" alt="slider illustration" />
+						</div>
+					</div>
+					<div className="slider_item">
+						<div className="slider_warp">
+							<div className="slider_date">March 2021</div>
+							<div className="slider_title">Asset Delisting update</div>
+							<div className="slider_info">
+								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+							</div>
+							<button className="btn slider_btn btn_white">
+								Find out more
+							</button>
+						</div>
+						<div className="slider_preview">
+							<img src="/assets/figures-1.png" alt="slider illustration" />
+						</div>
+					</div>
+				</OwlCarousel>
 			</div>
 		</div>
 	);
