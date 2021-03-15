@@ -1,33 +1,19 @@
 import React from "react";
 import { BiChevronUp } from "react-icons/bi";
 import Logic from "./Logic";
-import { connect } from "react-redux";
 import { setActiveDevise } from "../../redux/devises/action";
 import { setActiveLang } from "../../redux/lang/actions";
 
-const mapStateToProps = (state) => ({
-	lang: state.langs,
-	devises: state.devises,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-	setActiveDevise: (id) => dispatch(setActiveDevise(id)),
-	setActiveLang: (id) => dispatch(setActiveLang(id)),
-});
-
-const Langs = ({ lang, devises, setActiveDevise, setActiveLang }) => {
-	const { toggleActive } = Logic();
-
-	const lng = lang.filter((val) => val.active === true);
-	const dvs = devises.filter((val) => val.active === true);
+export const Langs = () => {
+	const { toggleActive, lng, dvs, lang, devises, dispatch } = Logic();
 
 	const handleActiveDevise = (id) => {
-		setActiveDevise(id);
+		dispatch(setActiveDevise(id));
 		toggleActive("header_item-lang");
 	};
 
 	const handleActiveLang = (id) => {
-		setActiveLang(id);
+		dispatch(setActiveLang(id));
 		toggleActive("header_item-lang");
 	};
 
@@ -79,5 +65,3 @@ const Langs = ({ lang, devises, setActiveDevise, setActiveLang }) => {
 		</div>
 	);
 };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Langs);

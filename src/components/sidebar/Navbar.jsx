@@ -1,14 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
+import Logic from "./Logic";
 
-const mapStateToProps = (state) => {
-	return {
-		navItems: state.navItems,
-	};
-};
-
-const Navbar = ({ navItems }) => {
+export const Navbar = () => {
+	const { navItems } = Logic();
 	return (
 		<nav className="sidebar_nav">
 			{navItems.length > 0 &&
@@ -26,5 +21,3 @@ const Navbar = ({ navItems }) => {
 		</nav>
 	);
 };
-
-export default connect(mapStateToProps)(Navbar);

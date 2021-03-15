@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Logic = () => {
 	const [toggle, setToggle] = useState(false);
@@ -29,11 +30,15 @@ const Logic = () => {
 		page.classList.toggle("wide");
 	};
 
+	//Navbar
+	const navItems = useSelector((state) => state.navItems);
+
 	return {
 		toggle,
 		toggleDarkTheme,
 		closeSidebar,
 		handleActiveSidebar,
+		navItems,
 	};
 };
 
