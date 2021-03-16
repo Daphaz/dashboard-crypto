@@ -1,3 +1,5 @@
+import { useSelector, useDispatch } from "react-redux";
+
 const Logic = () => {
 	const toggleActive = (c) => {
 		const els = document.querySelectorAll(".header_item");
@@ -19,9 +21,27 @@ const Logic = () => {
 		document.querySelector(".header_logo").classList.toggle("hidden");
 	};
 
+	//Langs
+	const lang = useSelector((state) => state.langs);
+	const devises = useSelector((state) => state.devises);
+
+	const lng = lang.filter((val) => val.active === true);
+	const dvs = devises.filter((val) => val.active === true);
+
+	const dispatch = useDispatch();
+
+	//Notification
+	const notifications = useSelector((state) => state.notifications);
+
 	return {
 		toggleActive,
 		toogleSidebarActive,
+		lang,
+		devises,
+		lng,
+		dvs,
+		dispatch,
+		notifications,
 	};
 };
 

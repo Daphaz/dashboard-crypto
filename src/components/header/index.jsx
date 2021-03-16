@@ -2,9 +2,9 @@ import React from "react";
 import { BiMenuAltRight } from "react-icons/bi";
 import { VscSignIn } from "react-icons/vsc";
 import { Search } from "./Search";
-import Notifications from "./Notifications";
+import { Notifications } from "./Notifications";
 import { Downloads } from "./Downloads";
-import Langs from "./Langs";
+import { Langs } from "./Langs";
 import Logic from "./Logic";
 
 export const Header = () => {

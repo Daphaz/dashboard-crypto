@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useSelector } from "react-redux";
+import { ThemeContext } from "../../helpers/context";
 
 const Logic = () => {
 	const [toggle, setToggle] = useState(false);
+	const { setIsDark } = useContext(ThemeContext);
 
 	const toggleDarkTheme = () => {
 		if (!toggle) {
@@ -10,6 +13,7 @@ const Logic = () => {
 			document.body.classList.remove("dark");
 		}
 		setToggle(!toggle);
+		setIsDark(!toggle);
 	};
 
 	const closeSidebar = () => {
@@ -29,11 +33,15 @@ const Logic = () => {
 		page.classList.toggle("wide");
 	};
 
+	//Navbar
+	const navItems = useSelector((state) => state.navItems);
+
 	return {
 		toggle,
 		toggleDarkTheme,
 		closeSidebar,
 		handleActiveSidebar,
+		navItems,
 	};
 };
 

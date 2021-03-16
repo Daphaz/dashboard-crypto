@@ -1,16 +1,9 @@
 import React from "react";
 import { BiBell } from "react-icons/bi";
 import Logic from "./Logic";
-import { connect } from "react-redux";
 
-const mapStateToProps = (state) => {
-	return {
-		notifications: state.notifications,
-	};
-};
-
-const Notifications = ({ notifications }) => {
-	const { toggleActive } = Logic();
+export const Notifications = () => {
+	const { toggleActive, notifications } = Logic();
 
 	return (
 		<div className="header_item header_item-notifications">
@@ -49,5 +42,3 @@ const Notifications = ({ notifications }) => {
 		</div>
 	);
 };
-
-export default connect(mapStateToProps)(Notifications);
