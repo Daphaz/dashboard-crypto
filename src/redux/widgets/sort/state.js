@@ -5,12 +5,12 @@ export const sortCoreState = [
 		active: true,
 	},
 	{
-		id: 2,
+		id: 1,
 		label: "Top Gainers",
 		active: false,
 	},
 	{
-		id: 3,
+		id: 2,
 		label: "Top Losers",
 		active: false,
 	},
@@ -23,22 +23,22 @@ export const sortVariantState = [
 		active: true,
 	},
 	{
-		id: 2,
+		id: 1,
 		label: "A - Z",
 		active: false,
 	},
 	{
-		id: 3,
+		id: 2,
 		label: "Volumes",
 		active: false,
 	},
 	{
-		id: 4,
+		id: 3,
 		label: "Last 24h",
 		active: false,
 	},
 	{
-		id: 5,
+		id: 4,
 		label: "Price",
 		active: false,
 	},

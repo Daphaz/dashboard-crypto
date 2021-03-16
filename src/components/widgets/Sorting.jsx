@@ -3,6 +3,13 @@ import { BiChevronUp, BiCheck } from "react-icons/bi";
 import Logic from "./Logic";
 import { useSelector, useDispatch } from "react-redux";
 import { coreActive, variantActive } from "../../redux/widgets/sort/actions";
+import {
+	sortAZ,
+	sortLast,
+	sortMC,
+	sortPrice,
+	sortVol,
+} from "../../redux/widgets/item/action";
 
 export const Sorting = () => {
 	const { handleToggle, handleRemove } = Logic();
@@ -21,8 +28,37 @@ export const Sorting = () => {
 	};
 
 	const handleActiveVariant = (id) => {
-		dispatch(variantActive(id));
-		handleRemove();
+		console.log(id);
+		switch (id) {
+			case 0:
+				dispatch(sortMC());
+				dispatch(variantActive(id));
+				handleRemove();
+				break;
+			case 1:
+				dispatch(sortAZ());
+				dispatch(variantActive(id));
+				handleRemove();
+				break;
+			case 2:
+				dispatch(sortVol());
+				dispatch(variantActive(id));
+				handleRemove();
+				break;
+			case 3:
+				dispatch(sortLast());
+				dispatch(variantActive(id));
+				handleRemove();
+				break;
+			case 4:
+				dispatch(sortPrice());
+				dispatch(variantActive(id));
+				handleRemove();
+				break;
+
+			default:
+				break;
+		}
 	};
 
 	return (
@@ -36,7 +72,7 @@ export const Sorting = () => {
 						<BiChevronUp />
 					</div>
 					<ul className="list">
-						{sortCore.length > 0 &&
+						{sortCore &&
 							sortCore.map((core) => {
 								const { id, label, active } = core;
 								return (
@@ -52,7 +88,7 @@ export const Sorting = () => {
 				</div>
 			</div>
 			<div className="widgets_variants mobile-hide ">
-				{sortCore.length > 0 &&
+				{sortCore &&
 					sortCore.map((core) => {
 						const { id, label, active } = core;
 						return (
@@ -76,7 +112,7 @@ export const Sorting = () => {
 						<BiChevronUp />
 					</div>
 					<ul className="list">
-						{sortVariant.length > 0 &&
+						{sortVariant &&
 							sortVariant.map((variant) => {
 								const { id, label, active } = variant;
 								return (

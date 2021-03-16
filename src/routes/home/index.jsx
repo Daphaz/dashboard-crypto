@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout } from "../../components/Layout";
 import { Slider } from "../../components/slider";
-import { Widgets } from "../../components/widgets";
+import Widgets from "../../components/widgets";
 
 const Home = () => {
 	return (

@@ -205,6 +205,14 @@
 				background: rgba(228, 228, 228, 0.03);
 			}
 		}
+
+		&_head {
+			border-color: $dark-border;
+		}
+
+		&_item {
+			background: $dark-color;
+		}
 	}
 }
 

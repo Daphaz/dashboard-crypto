@@ -42,4 +42,107 @@
 			margin: 0 8px;
 		}
 	}
+
+	&_list {
+		display: flex;
+		flex-wrap: wrap;
+		margin: -3.2rem -1.6rem 0;
+		@include m {
+			display: block;
+			margin: 0;
+		}
+	}
+
+	&_item {
+		position: relative;
+		flex: 0 0 calc(50% - 3.2rem);
+		max-width: calc(50% - 3.2rem);
+		margin: 3.2rem 1.6rem 0;
+		border-radius: 2.4rem;
+		background: $white;
+		box-shadow: 0 8px 2.5rem rgb(0 0 0 / 7%);
+		.widgets_btn {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-radius: 0 0 2.4rem 2.4rem;
+			visibility: hidden;
+			opacity: 0;
+			transition: all 0.2s;
+		}
+		@include m {
+			max-width: 100%;
+			margin: 0;
+			&:not(:last-child) {
+				margin-bottom: 3.2rem;
+			}
+		}
+	}
+
+	&_head {
+		@extend %flex-between;
+		padding: 2.4rem;
+		border-bottom: 1px solid $gray-light;
+	}
+
+	&_company {
+		@extend %flex-align;
+	}
+
+	&_logo {
+		flex-shrink: 0;
+		width: 4.8rem;
+		height: 4.8rem;
+		margin-right: 1.2rem;
+	}
+
+	&_category {
+		font-family: $poppins;
+		font-size: 1.8rem;
+		line-height: 1.33333;
+		font-weight: 500;
+	}
+	&_info {
+		font-size: 1.4rem;
+		font-weight: 600;
+		color: $gray;
+	}
+
+	&_time {
+		align-self: flex-start;
+		padding: 0 8px;
+		border-radius: 1.2rem;
+		background: #bceaff;
+		font-size: 1rem;
+		font-weight: 700;
+		letter-spacing: 1.5px;
+		line-height: 2.4rem;
+		color: $blue;
+	}
+
+	&_body {
+		padding: 2.4rem;
+	}
+	&_line {
+		@extend %flex-between;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-bottom: 1.2rem;
+	}
+	&_price {
+		font-family: $poppins;
+		font-size: 2.4rem;
+		line-height: 1.33333;
+		font-weight: 500;
+	}
+
+	&_chart {
+		height: 9.2rem;
+		margin-bottom: -3rem;
+	}
+}
+
+.apexcharts-yaxis {
+	display: none !important;
 }
