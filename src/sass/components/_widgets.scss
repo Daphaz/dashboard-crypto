@@ -61,6 +61,12 @@
 		border-radius: 2.4rem;
 		background: $white;
 		box-shadow: 0 8px 2.5rem rgb(0 0 0 / 7%);
+		&:hover {
+			.widgets_btn {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
 		.widgets_btn {
 			position: absolute;
 			left: 0;
@@ -140,6 +146,10 @@
 	&_chart {
 		height: 9.2rem;
 		margin-bottom: -3rem;
+	}
+	&_btns {
+		margin-top: 3.2rem;
+		text-align: center;
 	}
 }
 

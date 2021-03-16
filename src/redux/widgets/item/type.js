@@ -6,3 +6,6 @@ export const SORT_MC = "SORT_MC";
 export const SORT_VOL = "SORT_VOL";
 export const SORT_LAST = "SORT_LAST";
 export const SORT_PRICE = "SORT_PRICE";
+export const SORT_GAINERS = "SORT_GAINERS";
+export const SORT_LOSERS = "SORT_LOSERS";
+export const SORT_ASSETS = "SORT_ASSETS";

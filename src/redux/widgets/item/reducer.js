@@ -7,6 +7,9 @@ import {
 	SORT_MC,
 	SORT_PRICE,
 	SORT_VOL,
+	SORT_GAINERS,
+	SORT_LOSERS,
+	SORT_ASSETS,
 } from "./type";
 
 const initialState = {
@@ -51,6 +54,23 @@ const reducerWidget = (state = initialState, action) => {
 		case SORT_LAST:
 			const sortLast = state.items.sort((a, b) => b.percent - a.percent);
 			return { ...state, items: sortLast };
+		case SORT_GAINERS:
+			const sortGainers = state.items.map((s) =>
+				s.status === "positive"
+					? { ...s, display: "block" }
+					: { ...s, display: "none" }
+			);
+			return { ...state, items: sortGainers };
+		case SORT_LOSERS:
+			const sortLosers = state.items.map((s) =>
+				s.status === "negative"
+					? { ...s, display: "block" }
+					: { ...s, display: "none" }
+			);
+			return { ...state, items: sortLosers };
+		case SORT_ASSETS:
+			const sortAssets = state.items.map((s) => ({ ...s, display: "block" }));
+			return { ...state, items: sortAssets };
 		default:
 			return state;
 	}

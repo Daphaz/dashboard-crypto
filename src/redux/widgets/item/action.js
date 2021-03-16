@@ -9,6 +9,9 @@ import {
 	SORT_MC,
 	SORT_PRICE,
 	SORT_VOL,
+	SORT_LOSERS,
+	SORT_GAINERS,
+	SORT_ASSETS,
 } from "./type";
 
 export const loadApiWidget = () => {
@@ -61,6 +64,24 @@ export const sortVol = () => {
 	};
 };
 
+export const sortGainers = () => {
+	return {
+		type: SORT_GAINERS,
+	};
+};
+
+export const sortLosers = () => {
+	return {
+		type: SORT_LOSERS,
+	};
+};
+
+export const sortAssets = () => {
+	return {
+		type: SORT_ASSETS,
+	};
+};
+
 export const apiCall = () => {
 	return async (dispatch) => {
 		dispatch(loadApiWidget());
@@ -110,6 +131,7 @@ export const apiCall = () => {
 					series,
 					volumes,
 					market_caps,
+					display: "block",
 				});
 			}
 			dispatch(loadWidgetSucess(finalState));

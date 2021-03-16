@@ -9,6 +9,9 @@ import {
 	sortMC,
 	sortPrice,
 	sortVol,
+	sortAssets,
+	sortGainers,
+	sortLosers,
 } from "../../redux/widgets/item/action";
 
 export const Sorting = () => {
@@ -22,9 +25,31 @@ export const Sorting = () => {
 	const coreActiveLabel = sortCore.filter((e) => e.active === true);
 	const variantActiveLabel = sortVariant.filter((e) => e.active === true);
 
-	const handleActiveCore = (id) => {
-		dispatch(coreActive(id));
-		handleRemove();
+	const handleActiveCore = (id, isActive) => {
+		if (!isActive) {
+			switch (id) {
+				case 0:
+					dispatch(coreActive(id));
+					handleRemove();
+					dispatch(sortAssets());
+					break;
+				case 1:
+					dispatch(coreActive(id));
+					handleRemove();
+					dispatch(sortGainers());
+					break;
+				case 2:
+					dispatch(coreActive(id));
+					handleRemove();
+					dispatch(sortLosers());
+					break;
+
+				default:
+					break;
+			}
+		} else {
+			handleRemove();
+		}
 	};
 
 	const handleActiveVariant = (id, isActive) => {

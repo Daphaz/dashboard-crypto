@@ -21,7 +21,11 @@ const Widgets = ({ items, apiCall }) => {
 							return <Item coin={c} key={c.id} />;
 						})}
 					</div>
-					<div className="widgets_btns"></div>
+					<div className="widgets_btns">
+						<button className="btn widgets_btn btn_blue">
+							Discover more assets
+						</button>
+					</div>
 				</div>
 			) : (
 				<div className="widgets">

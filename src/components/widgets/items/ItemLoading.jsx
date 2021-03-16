@@ -11,10 +11,9 @@ export const ItemLoading = () => {
 					<div className="widgets_logo">
 						<ContentLoader
 							style={{ borderRadius: "50%" }}
-							speed={2}
+							speed={2.4}
 							width={"100%"}
 							height={"100%"}
-							viewBox="0 0 100% 100%"
 							backgroundColor={bgColor}
 							foregroundColor={fgColor}>
 							<rect x="0" y="0" rx="0" ry="0" width="100%" height="100%" />
@@ -24,10 +23,9 @@ export const ItemLoading = () => {
 						<div className="widgets_category">
 							<ContentLoader
 								style={{ borderRadius: 10, marginBottom: 5 }}
-								speed={2}
-								width={"100%"}
+								speed={2.3}
+								width={"90%"}
 								height={20}
-								viewBox="0 0 100% 100%"
 								backgroundColor={bgColor}
 								foregroundColor={fgColor}>
 								<rect x="0" y="0" rx="0" ry="0" width="100%" height="100%" />
@@ -36,10 +34,9 @@ export const ItemLoading = () => {
 						<div className="widgets_info">
 							<ContentLoader
 								style={{ borderRadius: 10 }}
-								speed={2}
-								width={"100%"}
+								speed={1.9}
+								width={"80%"}
 								height={10}
-								viewBox="0 0 100% 100%"
 								backgroundColor={bgColor}
 								foregroundColor={fgColor}>
 								<rect x="0" y="0" rx="0" ry="0" width="100%" height="100%" />
@@ -50,10 +47,9 @@ export const ItemLoading = () => {
 				<div style={{ alignSelf: "flex-start" }}>
 					<ContentLoader
 						style={{ borderRadius: 10 }}
-						speed={2}
+						speed={2.2}
 						width={30}
 						height={25}
-						viewBox="0 0 100% 100%"
 						backgroundColor={bgColor}
 						foregroundColor={fgColor}>
 						<rect x="0" y="0" rx="0" ry="0" width="100%" height="100%" />
@@ -63,10 +59,9 @@ export const ItemLoading = () => {
 			<div className="widgets_body">
 				<ContentLoader
 					style={{ borderRadius: 10 }}
-					speed={2}
+					speed={2.1}
 					width={"100%"}
 					height={"100%"}
-					viewBox="0 0 100% 100%"
 					backgroundColor={bgColor}
 					foregroundColor={fgColor}>
 					<rect x="0" y="0" rx="0" ry="0" width="100%" height="100%" />
