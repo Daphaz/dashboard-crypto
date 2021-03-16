@@ -27,37 +27,40 @@ export const Sorting = () => {
 		handleRemove();
 	};
 
-	const handleActiveVariant = (id) => {
-		console.log(id);
-		switch (id) {
-			case 0:
-				dispatch(sortMC());
-				dispatch(variantActive(id));
-				handleRemove();
-				break;
-			case 1:
-				dispatch(sortAZ());
-				dispatch(variantActive(id));
-				handleRemove();
-				break;
-			case 2:
-				dispatch(sortVol());
-				dispatch(variantActive(id));
-				handleRemove();
-				break;
-			case 3:
-				dispatch(sortLast());
-				dispatch(variantActive(id));
-				handleRemove();
-				break;
-			case 4:
-				dispatch(sortPrice());
-				dispatch(variantActive(id));
-				handleRemove();
-				break;
+	const handleActiveVariant = (id, isActive) => {
+		if (!isActive) {
+			switch (id) {
+				case 0:
+					dispatch(sortMC());
+					dispatch(variantActive(id));
+					handleRemove();
+					break;
+				case 1:
+					dispatch(sortAZ());
+					dispatch(variantActive(id));
+					handleRemove();
+					break;
+				case 2:
+					dispatch(sortVol());
+					dispatch(variantActive(id));
+					handleRemove();
+					break;
+				case 3:
+					dispatch(sortLast());
+					dispatch(variantActive(id));
+					handleRemove();
+					break;
+				case 4:
+					dispatch(sortPrice());
+					dispatch(variantActive(id));
+					handleRemove();
+					break;
 
-			default:
-				break;
+				default:
+					break;
+			}
+		} else {
+			handleRemove();
 		}
 	};
 
@@ -93,7 +96,7 @@ export const Sorting = () => {
 						const { id, label, active } = core;
 						return (
 							<div
-								onClick={() => handleActiveCore(id)}
+								onClick={() => handleActiveCore(id, active)}
 								className={active ? "widgets_link active" : "widgets_link"}
 								key={id}>
 								{label}
