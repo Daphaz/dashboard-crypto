@@ -88,6 +88,9 @@
 .dark {
 	background: $dark-bg;
 	color: $white;
+	.btn_border {
+		border-color: $dark-border;
+	}
 	.icon_dark {
 		display: block;
 	}
@@ -213,6 +216,23 @@
 		&_item {
 			background: $dark-color;
 		}
+	}
+	.wallets_warpper {
+		background-color: $dark-color;
+		&::before {
+			display: none;
+		}
+		&::after {
+			top: 1rem;
+			left: 1rem;
+			right: 1rem;
+			bottom: -1rem;
+			z-index: -1;
+			background: rgba(36, 39, 49, 0.5);
+		}
+	}
+	.wallets_item {
+		border-color: $dark-border;
 	}
 }
 

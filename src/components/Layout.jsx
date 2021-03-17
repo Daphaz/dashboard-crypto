@@ -8,7 +8,7 @@ export const Layout = ({ children }) => {
 			<Sidebar />
 			<div className="page_content">
 				<Header />
-				<div className="page_row">{children}</div>
+				{children}
 			</div>
 		</div>
 	);
