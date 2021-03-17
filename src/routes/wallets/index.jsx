@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout } from "../../components/Layout";
 import { TotalWallet } from "../../components/wallets/TotalWallet";
+import { BalanceList } from "../../components/wallets/BalanceList";
 
 const Wallets = () => {
 	return (
@@ -8,7 +9,7 @@ const Wallets = () => {
 			<div className="wallets">
 				<div className="wallets_container">
 					<TotalWallet />
-					<div className="wallets balances"></div>
+					<BalanceList />
 				</div>
 				<aside className="wallets_sidebar"></aside>
 			</div>

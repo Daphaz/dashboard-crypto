@@ -234,6 +234,9 @@
 	.wallets_item {
 		border-color: $dark-border;
 	}
+	.balances_row:nth-child(2n + 1) {
+		background: rgba(228, 228, 228, 0.04);
+	}
 }
 
 .no-scroll {

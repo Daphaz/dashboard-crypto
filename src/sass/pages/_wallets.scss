@@ -221,3 +221,101 @@
 		border-radius: 0.6rem;
 	}
 }
+
+.balances {
+	font-size: 1.4rem;
+	&_title {
+		margin-bottom: 3.2rem;
+		@include m {
+			margin-bottom: 2.4rem;
+		}
+	}
+	&_table {
+		display: table;
+		width: 100%;
+	}
+	&_row {
+		@extend %pointer;
+		display: table-row;
+		border-radius: 1.2rem;
+		transition: all 0.2s;
+		&:nth-child(2n + 1) {
+			background: rgba(228, 228, 228, 0.2);
+		}
+		&:not(.balances_row_head) {
+			& .balances_cell {
+				height: 8rem;
+				font-size: 1.4rem;
+			}
+		}
+		&_head {
+			.balances_cell {
+				height: 4rem;
+				font-size: 1rem;
+				font-weight: 600;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				color: $gray;
+				&:first-child {
+					border-radius: 0.8rem 0 0 0.8rem;
+				}
+				&:last-child {
+					border-radius: 0 0.8rem 0.8rem 0;
+				}
+			}
+		}
+	}
+	&_cell {
+		display: table-cell;
+		vertical-align: middle;
+		padding-left: 2.4rem;
+		&:first-child {
+			border-radius: 1.2rem 0 0 1.2rem;
+		}
+		&:last-child {
+			border-radius: 0 0.8rem 0.8rem 0;
+		}
+		&:nth-child(3) {
+			font-weight: 600;
+			color: $gray;
+		}
+
+		@include t {
+			padding-left: 1.6rem;
+			&:nth-child(n + 3) {
+				display: none;
+			}
+			&:last-child {
+				display: table-cell;
+				padding-right: 1.6rem;
+			}
+		}
+	}
+	&_company {
+		display: inline-flex;
+		align-items: center;
+		font-weight: 600;
+	}
+	&_logo {
+		flex-shrink: 0;
+		width: 3.2rem;
+		height: 3.2rem;
+		margin-right: 1.6rem;
+	}
+	&_number {
+		font-weight: 600;
+	}
+	&_price {
+		font-size: 1.2rem;
+		line-height: 1.33333;
+		font-weight: 500;
+		color: $gray;
+	}
+	&_btns {
+		margin-top: 3.2rem;
+		text-align: center;
+		@include m {
+			margin-top: 2.4rem;
+		}
+	}
+}
