@@ -11,6 +11,7 @@
 		}
 		@include m {
 			padding: 0 1.6rem 3.2rem;
+			width: 100%;
 		}
 	}
 	&_sidebar {
@@ -43,6 +44,172 @@
 		@include m {
 			padding: 0;
 			border-radius: 0;
+		}
+		&.visible {
+			margin-right: 0;
+			@include x {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+		.wallets_company {
+			font-size: 1.3rem;
+			line-height: 1.23077;
+			font-weight: 500;
+			color: $gray;
+		}
+	}
+
+	&_warp {
+		position: relative;
+		@include x {
+			width: 100%;
+			max-width: 63rem;
+			margin: auto;
+			padding: 3.2rem;
+			border-radius: 2.4rem;
+			background: $white;
+		}
+		@include m {
+			padding: 2.4rem 1.6rem;
+			border-radius: 0;
+		}
+	}
+
+	&_head {
+		display: flex;
+		align-items: center;
+		margin-bottom: 3.2rem;
+		padding-right: 3rem;
+		@include x {
+			padding-right: 5rem;
+		}
+		.wallets_logo {
+			width: 4.2rem;
+			height: 4.2rem;
+			margin-right: 1.6rem;
+		}
+		.wallets_info {
+			margin-bottom: 0.4rem;
+			font-size: 1.8rem;
+			line-height: 1.33333;
+			font-weight: 500;
+		}
+	}
+
+	&_line {
+		@extend %flex-align;
+	}
+	&_money {
+		font-size: 4rem;
+		line-height: 1.2;
+		letter-spacing: -1px;
+		font-weight: 600;
+	}
+
+	&_code {
+		font-size: 1.8rem;
+		line-height: 1.33333;
+		font-weight: 500;
+		color: $gray;
+	}
+
+	&_parameters {
+		margin-top: 3.2rem;
+		@include x {
+			display: flex;
+			padding: 3.2rem 0;
+			border-width: 1px 0;
+			border-style: solid;
+			border-color: $gray-light;
+		}
+		@include m {
+			display: block;
+			padding: 0;
+			border-width: 1px 0 0;
+		}
+	}
+
+	&_parameter {
+		display: flex;
+		padding: 3.2rem 0;
+		border-top: 1px solid $gray-light;
+		font-size: 1.4rem;
+		&:last-child {
+			padding-bottom: 0;
+		}
+		.wallets_box {
+			flex-grow: 1;
+		}
+		@include x {
+			padding: 0;
+			border: none;
+			&:last-child {
+				margin-left: auto;
+			}
+		}
+		@include m {
+			padding: 2.4rem 0;
+			border-bottom: 1px solid $gray-light;
+			&:last-child {
+				padding-bottom: 2.4rem;
+			}
+		}
+	}
+
+	&_preview {
+		@extend %flex-center;
+		flex-shrink: 0;
+		width: 4.8rem;
+		height: 4.8rem;
+		margin-right: 3.2rem;
+		border-radius: 50%;
+		.hold {
+			color: $white;
+			font-size: 2.4rem;
+		}
+	}
+
+	&_category {
+		margin-bottom: 6px;
+		font-size: 1.2rem;
+		line-height: 1.33333;
+		font-weight: 500;
+		color: $gray;
+	}
+
+	.card {
+		margin-top: 4.8rem;
+		@include x {
+			margin-top: 3.2rem;
+		}
+	}
+
+	&_close {
+		position: absolute;
+		top: 1.2rem;
+		right: 0;
+		width: 2rem;
+		height: 2rem;
+		.icon {
+			font-size: 2.6rem;
+			transition: transform 0.2s;
+			&.icon-close {
+				fill: $black;
+			}
+		}
+		@include x {
+			top: 2.6rem;
+			right: 2.4rem;
+			width: 4.8rem;
+			height: 4.8rem;
+			border-radius: 50%;
+			box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
+		}
+		@include m {
+			top: 2.2rem;
+			right: 1rem;
+			box-shadow: none;
 		}
 	}
 
@@ -92,6 +259,16 @@
 			margin-bottom: 4rem;
 			padding: 2.4rem;
 		}
+		&.small {
+			.wallets_group {
+				position: static;
+				flex-shrink: 0;
+				width: 26rem;
+			}
+			.wallets_btns {
+				display: none;
+			}
+		}
 	}
 
 	&_row {
@@ -115,6 +292,9 @@
 		.wallets_number {
 			@include w {
 				font-size: 3.2rem;
+			}
+			@include m {
+				font-size: 2.8rem;
 			}
 		}
 	}
@@ -243,6 +423,10 @@
 			background: rgba(228, 228, 228, 0.2);
 		}
 		&:not(.balances_row_head) {
+			&:hover {
+				box-shadow: 0 0 0 2px $blue;
+			}
+
 			& .balances_cell {
 				height: 8rem;
 				font-size: 1.4rem;

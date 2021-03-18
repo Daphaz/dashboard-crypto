@@ -18,7 +18,7 @@ export const BalanceList = () => {
 					<div className="balances_cell">total balance</div>
 				</div>
 				{arTest.map((a) => (
-					<Balance />
+					<Balance key={a} />
 				))}
 			</div>
 			<div className="balances_btns">

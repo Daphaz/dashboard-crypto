@@ -5,7 +5,7 @@ import Widgets from "../../components/widgets";
 
 const Home = () => {
 	return (
-		<Layout>
+		<Layout border>
 			<div className="page_row">
 				<div className="page_col">
 					<Slider />

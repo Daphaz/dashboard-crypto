@@ -50,6 +50,9 @@
 			left: 4.6rem;
 			.icon_dark {
 				transform: translateX(-4rem);
+				@include d {
+					transform: translateX(0rem);
+				}
 			}
 		}
 

@@ -1,9 +1,19 @@
-import React from "react";
-import { BiEditAlt } from "react-icons/bi";
+import React, { useContext } from "react";
 import { CgShapeCircle } from "react-icons/cg";
 import { IoWalletOutline } from "react-icons/io5";
+import { WalletContext } from "../../helpers/context";
 
 export const TotalWallet = () => {
+	const { setShowAddWallet } = useContext(WalletContext);
+
+	const handleCreateWallet = () => {
+		setShowAddWallet(true);
+		const side = document.querySelector(".wallets_sidebar");
+		const wrapper = document.querySelector(".wallets_warpper");
+		side.classList.toggle("visible");
+		wrapper.classList.toggle("small");
+	};
+
 	return (
 		<div className="wallets_warpper">
 			<div className="wallets_row">
@@ -51,12 +61,10 @@ export const TotalWallet = () => {
 				</div>
 			</div>
 			<div className="wallets_btns">
-				<button className="btn wallets_btn btn_blue">
-					<BiEditAlt className="icon icon_edit" />
-					Edit
-				</button>
-				<button className="btn wallets_btn btn_border">
-					<IoWalletOutline className="icon icon_edit" />
+				<button
+					className="btn wallets_btn btn_blue"
+					onClick={handleCreateWallet}>
+					<IoWalletOutline className="icon icon_wallet" />
 					Create
 				</button>
 			</div>

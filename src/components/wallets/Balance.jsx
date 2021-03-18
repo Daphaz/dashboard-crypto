@@ -1,13 +1,26 @@
 import React from "react";
-import { BsStar } from "react-icons/bs";
+import { BsStar, BsStarFill } from "react-icons/bs";
 import { BiUpArrowAlt, BiDownArrowAlt } from "react-icons/bi";
 
 export const Balance = () => {
+	const handleClickBalance = () => {
+		const side = document.querySelector(".wallets_sidebar");
+		const wrapper = document.querySelector(".wallets_warpper");
+		side.classList.toggle("visible");
+		wrapper.classList.toggle("small");
+	};
+
+	const handleStarActive = () => {
+		const fav = document.querySelector(".favorite");
+		fav.classList.toggle("active");
+	};
+
 	return (
-		<div className="balances_row">
+		<div className="balances_row" onClick={handleClickBalance}>
 			<div className="balances_cell">
-				<button className="btn favorite">
-					<BsStar />
+				<button className="btn favorite" onClick={handleStarActive}>
+					<BsStar className="stars stars-outline" />
+					<BsStarFill className="stars stars-fill" />
 				</button>
 			</div>
 			<div className="balances_cell">

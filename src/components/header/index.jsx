@@ -7,11 +7,11 @@ import { Downloads } from "./Downloads";
 import { Langs } from "./Langs";
 import Logic from "./Logic";
 
-export const Header = () => {
+export const Header = ({ border }) => {
 	const { toogleSidebarActive } = Logic();
 
 	return (
-		<header className="header header_border">
+		<header className={border ? "header header_border" : "header"}>
 			<div className="header_logo">
 				<img
 					src="/assets/logo_mobile.png"

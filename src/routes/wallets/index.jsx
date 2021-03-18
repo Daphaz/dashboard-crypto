@@ -2,6 +2,7 @@ import React from "react";
 import { Layout } from "../../components/Layout";
 import { TotalWallet } from "../../components/wallets/TotalWallet";
 import { BalanceList } from "../../components/wallets/BalanceList";
+import { WalletSidebar } from "../../components/wallets/sidebar";
 
 const Wallets = () => {
 	return (
@@ -11,7 +12,7 @@ const Wallets = () => {
 					<TotalWallet />
 					<BalanceList />
 				</div>
-				<aside className="wallets_sidebar"></aside>
+				<WalletSidebar />
 			</div>
 		</Layout>
 	);

@@ -7,6 +7,12 @@
 		fill: $white;
 		margin-right: 8px;
 	}
+	&_wallet {
+		font-size: 1.6rem;
+		fill: $white;
+		color: $white;
+		margin-right: 8px;
+	}
 	&_close {
 		font-size: 1.8rem;
 		fill: $black;
@@ -24,5 +30,8 @@
 		@include t {
 			transform: translateX(0);
 		}
+	}
+	&_dots {
+		fill: $black;
 	}
 }
