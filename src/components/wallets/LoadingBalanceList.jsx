@@ -1,11 +1,7 @@
 import React from "react";
-import { Balance } from "./Balance";
+import { LoadingBalance } from "./LoadingBalance";
 
-export const BalanceList = ({ balances }) => {
-	const totalBtc = balances
-		.reduce((acc, val) => val.amountBtc + acc, 0)
-		.toFixed(8);
-
+export const LoadingBalanceList = () => {
 	return (
 		<div className="balances">
 			<div className="balances_title h6">Assets Balances</div>
@@ -19,12 +15,8 @@ export const BalanceList = ({ balances }) => {
 					<div className="balances_cell">portfolio</div>
 					<div className="balances_cell">total balance</div>
 				</div>
-				{balances.map((balance) => (
-					<Balance key={balance.id} balance={balance} totalBtc={totalBtc} />
-				))}
-			</div>
-			<div className="balances_btns">
-				<button className="btn balances_btn btn_blue">Load more</button>
+				<LoadingBalance />
+				<LoadingBalance />
 			</div>
 		</div>
 	);

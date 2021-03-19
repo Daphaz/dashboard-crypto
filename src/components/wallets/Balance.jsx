@@ -1,19 +1,16 @@
 import React from "react";
 import { BsStar, BsStarFill } from "react-icons/bs";
 import { BiUpArrowAlt, BiDownArrowAlt } from "react-icons/bi";
+import LogicBalance from "./LogicBalance";
 
-export const Balance = () => {
-	const handleClickBalance = () => {
-		const side = document.querySelector(".wallets_sidebar");
-		const wrapper = document.querySelector(".wallets_warpper");
-		side.classList.toggle("visible");
-		wrapper.classList.toggle("small");
-	};
-
-	const handleStarActive = () => {
-		const fav = document.querySelector(".favorite");
-		fav.classList.toggle("active");
-	};
+export const Balance = ({ balance, totalBtc }) => {
+	const {
+		handleClickBalance,
+		handleStarActive,
+		priceBalanceFormated,
+		priceBalanceTotalFormated,
+		totalPercent,
+	} = LogicBalance(balance, totalBtc);
 
 	return (
 		<div className="balances_row" onClick={handleClickBalance}>
@@ -26,23 +23,30 @@ export const Balance = () => {
 			<div className="balances_cell">
 				<div className="balances_company">
 					<div className="balances_logo">
-						<img src="/assets/bitcoin.png" alt="logo bitcoin" />
+						<img src={balance.image} alt={`logo ${balance.name}`} />
 					</div>
-					<div className="balances_text">Bitcoin</div>
+					<div className="balances_text">{balance.name}</div>
 				</div>
 			</div>
-			<div className="balances_cell">BTC</div>
-			<div className="balances_cell">60,000 $</div>
+			<div className="balances_cell">{balance.symbol.toUpperCase()}</div>
+			<div className="balances_cell">{priceBalanceFormated}</div>
 			<div className="balances_cell">
-				<div className="status positive">
-					<BiUpArrowAlt />
-					2.05 %
-				</div>
+				{balance.percent24h.status === "positive" ? (
+					<div className="status positive">
+						<BiUpArrowAlt />
+						{`+${balance.percent24h.value.toFixed(2)} %`}
+					</div>
+				) : (
+					<div className="status negative">
+						<BiDownArrowAlt />
+						{`${balance.percent24h.value.toFixed(2)} %`}
+					</div>
+				)}
 			</div>
-			<div className="balances_cell">100 %</div>
+			<div className="balances_cell">{`${totalPercent} %`}</div>
 			<div className="balances_cell">
-				<div className="balances_number">$60.125.20</div>
-				<div className="balances_price">$2.300.58</div>
+				<div className="balances_number">{balance.amount}</div>
+				<div className="balances_price">{priceBalanceTotalFormated}</div>
 			</div>
 		</div>
 	);

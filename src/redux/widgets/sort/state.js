@@ -43,3 +43,26 @@ export const sortVariantState = [
 		active: false,
 	},
 ];
+
+export const sortMarketSidebar = [
+	{
+		id: 0,
+		label: "1h Markets",
+		active: true,
+	},
+	{
+		id: 1,
+		label: "24h Markets",
+		active: false,
+	},
+	{
+		id: 2,
+		label: "7d Markets",
+		active: false,
+	},
+	{
+		id: 3,
+		label: "14d Markets",
+		active: false,
+	},
+];

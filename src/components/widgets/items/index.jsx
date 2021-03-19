@@ -55,9 +55,17 @@ export const Item = ({ coin }) => {
 							</div>
 						</div>
 						<div className="widgets_chart">
-							<div id="spark1" style={{ minHeight: 96 }}>
-								<Chart options={options} series={serie} height={96} />
-							</div>
+							{coin.labels.length > 0 ? (
+								<div id="spark1" style={{ minHeight: 96 }}>
+									<Chart options={options} series={serie} height={96} />
+								</div>
+							) : (
+								<div id="spark1" style={{ minHeight: 96 }}>
+									<div className="widgets_chart_alert h6 color-gray">
+										No Data
+									</div>
+								</div>
+							)}
 						</div>
 					</div>
 					<button className="btn widgets_btn btn_blue btn_full">
