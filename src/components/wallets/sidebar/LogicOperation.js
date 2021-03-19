@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { editBalance } from "../../../redux/balances/action";
+import { editBalance, deleteBalance } from "../../../redux/balances/action";
 
 const initialState = {
 	amount: "",
@@ -21,6 +21,12 @@ const LogicOperation = (handleClickClose, balance) => {
 		if (e.target.value === "") {
 			el.classList.remove("active");
 		}
+	};
+
+	const removeItem = () => {
+		dispatch(deleteBalance(balance.id));
+		handleClickClose();
+		setState(initialState);
 	};
 
 	//Validation Form
@@ -53,9 +59,9 @@ const LogicOperation = (handleClickClose, balance) => {
 			const amount = parseFloat(state.amount);
 
 			if (state.amount !== "") {
-				setState(initialState);
 				dispatch(editBalance(balance.id, amount));
 				handleClickClose();
+				setState(initialState);
 			} else {
 				setState({
 					...state,
@@ -94,6 +100,7 @@ const LogicOperation = (handleClickClose, balance) => {
 		formValChange,
 		onSubmit,
 		state,
+		removeItem,
 	};
 };
 

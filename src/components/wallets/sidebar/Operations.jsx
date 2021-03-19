@@ -7,10 +7,14 @@ export const Operations = ({
 	balance,
 	handleClickClose,
 }) => {
-	const { inputFocus, removeActive, formValChange, onSubmit, state } = Logic(
-		handleClickClose,
-		balance
-	);
+	const {
+		inputFocus,
+		removeActive,
+		formValChange,
+		onSubmit,
+		state,
+		removeItem,
+	} = Logic(handleClickClose, balance);
 
 	return (
 		<div className="operations" style={{ display: "none" }}>
@@ -45,8 +49,9 @@ export const Operations = ({
 				</button>
 				{balance.id !== "bitcoin" && (
 					<button
-						type="submit"
-						className="btn operations_btn btn_border btn_full">
+						type="button"
+						className="btn operations_btn btn_border btn_full"
+						onClick={removeItem}>
 						Delete
 					</button>
 				)}

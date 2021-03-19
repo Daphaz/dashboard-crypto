@@ -5,6 +5,7 @@ import {
 	ACTIVE_BALANCE,
 	ACTIVE_BALANCE_WIDGET,
 	EDIT_BALANCE,
+	DELETE_BALANCE,
 } from "./type";
 
 export const addBalance = (item) => {
@@ -19,6 +20,13 @@ export const editBalance = (id, amount) => {
 		type: EDIT_BALANCE,
 		id,
 		amount,
+	};
+};
+
+export const deleteBalance = (id) => {
+	return {
+		type: DELETE_BALANCE,
+		id,
 	};
 };
 

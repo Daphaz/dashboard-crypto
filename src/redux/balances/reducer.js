@@ -5,6 +5,7 @@ import {
 	ACTIVE_BALANCE_WIDGET,
 	ADD_BALANCE,
 	EDIT_BALANCE,
+	DELETE_BALANCE,
 } from "./type";
 
 const initalState = {
@@ -23,6 +24,11 @@ const initalState = {
 
 const reducerBalance = (state = initalState, action) => {
 	switch (action.type) {
+		case DELETE_BALANCE:
+			return {
+				...state,
+				items: state.items.filter((s) => s.id !== action.id),
+			};
 		case EDIT_BALANCE: {
 			const { id, amount } = action;
 			return {
