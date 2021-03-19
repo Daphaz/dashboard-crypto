@@ -28,9 +28,6 @@ export const BalanceList = ({ balances }) => {
 					/>
 				))}
 			</div>
-			<div className="balances_btns">
-				<button className="btn balances_btn btn_blue">Load more</button>
-			</div>
 		</div>
 	);
 };

@@ -4,6 +4,7 @@ import {
 	ACTIVE_BALANCE,
 	ACTIVE_BALANCE_WIDGET,
 	ADD_BALANCE,
+	EDIT_BALANCE,
 } from "./type";
 
 const initalState = {
@@ -22,6 +23,26 @@ const initalState = {
 
 const reducerBalance = (state = initalState, action) => {
 	switch (action.type) {
+		case EDIT_BALANCE: {
+			const { id, amount } = action;
+			return {
+				...state,
+				items: state.items.map((s) => {
+					if (s.id === id) {
+						const amountBtc = s.prices[3] * action.amount;
+						const pricesTotal = s.prices.map((p) => p * action.amount);
+						return {
+							...s,
+							amount,
+							amountBtc,
+							pricesTotal,
+						};
+					} else {
+						return { ...s };
+					}
+				}),
+			};
+		}
 		case ADD_BALANCE:
 			return {
 				...state,

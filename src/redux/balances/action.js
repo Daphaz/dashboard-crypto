@@ -4,12 +4,21 @@ import {
 	LOAD_BALANCES_SUCESS,
 	ACTIVE_BALANCE,
 	ACTIVE_BALANCE_WIDGET,
+	EDIT_BALANCE,
 } from "./type";
 
 export const addBalance = (item) => {
 	return {
 		type: ADD_BALANCE,
 		item,
+	};
+};
+
+export const editBalance = (id, amount) => {
+	return {
+		type: EDIT_BALANCE,
+		id,
+		amount,
 	};
 };
 

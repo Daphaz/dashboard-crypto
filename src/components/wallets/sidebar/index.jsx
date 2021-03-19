@@ -128,7 +128,12 @@ export const WalletSidebar = ({ balances }) => {
 										</div>
 									</div>
 								</div>
-								<Operations />
+								<Operations
+									totalBtc={totalBtc}
+									totalPriceFormated={totalPriceFormated}
+									balance={balance}
+									handleClickClose={handleClickClose}
+								/>
 							</>
 						)}
 					</>
