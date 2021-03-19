@@ -9,7 +9,7 @@ import {
 export const addBalance = (item) => {
 	return {
 		type: ADD_BALANCE,
-		payload: { item },
+		item,
 	};
 };
 

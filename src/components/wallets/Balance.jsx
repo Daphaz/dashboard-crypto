@@ -3,7 +3,7 @@ import { BsStar, BsStarFill } from "react-icons/bs";
 import { BiUpArrowAlt, BiDownArrowAlt } from "react-icons/bi";
 import LogicBalance from "./LogicBalance";
 
-export const Balance = ({ balance, totalBtc }) => {
+export const Balance = ({ balance, totalBtc, idItem }) => {
 	const {
 		handleClickBalance,
 		handleStarActive,
@@ -15,7 +15,10 @@ export const Balance = ({ balance, totalBtc }) => {
 	return (
 		<div className="balances_row" onClick={handleClickBalance}>
 			<div className="balances_cell">
-				<button className="btn favorite" onClick={handleStarActive}>
+				<button
+					className="btn favorite"
+					id={`fav${idItem}`}
+					onClick={() => handleStarActive(idItem)}>
 					<BsStar className="stars stars-outline" />
 					<BsStarFill className="stars stars-fill" />
 				</button>

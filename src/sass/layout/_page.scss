@@ -264,6 +264,16 @@
 			border-color: $dark-border;
 		}
 	}
+	.field_input {
+		background: rgba(228, 228, 228, 0.03);
+		color: $white;
+	}
+	.btn_blue {
+		&:disabled {
+			background-color: $dark-color;
+			color: $gray-dark;
+		}
+	}
 }
 
 .no-scroll {

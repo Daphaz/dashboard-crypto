@@ -30,6 +30,10 @@
 	&_blue {
 		background-color: $blue;
 		color: $white;
+		&:disabled {
+			background-color: $gray;
+			cursor: not-allowed;
+		}
 	}
 	&_full {
 		min-width: 100%;

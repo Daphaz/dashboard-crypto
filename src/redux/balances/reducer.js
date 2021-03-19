@@ -3,6 +3,7 @@ import {
 	LOAD_BALANCES_SUCESS,
 	ACTIVE_BALANCE,
 	ACTIVE_BALANCE_WIDGET,
+	ADD_BALANCE,
 } from "./type";
 
 const initalState = {
@@ -21,6 +22,11 @@ const initalState = {
 
 const reducerBalance = (state = initalState, action) => {
 	switch (action.type) {
+		case ADD_BALANCE:
+			return {
+				...state,
+				items: [...state.items, action.item],
+			};
 		case LOAD_BALANCES:
 			return {
 				...state,

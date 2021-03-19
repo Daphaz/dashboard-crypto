@@ -19,8 +19,13 @@ export const BalanceList = ({ balances }) => {
 					<div className="balances_cell">portfolio</div>
 					<div className="balances_cell">total balance</div>
 				</div>
-				{balances.map((balance) => (
-					<Balance key={balance.id} balance={balance} totalBtc={totalBtc} />
+				{balances.map((balance, i) => (
+					<Balance
+						key={balance.id}
+						balance={balance}
+						totalBtc={totalBtc}
+						idItem={i}
+					/>
 				))}
 			</div>
 			<div className="balances_btns">

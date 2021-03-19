@@ -21,9 +21,12 @@ export const WalletSidebar = ({ balances }) => {
 		sortMarkets,
 		handleActiveMarket,
 		marketFilter,
+		totalBtc,
+		totalPriceFormated,
+		state,
+		onSubmit,
+		formValChange,
 	} = Logic(balances);
-
-	console.log(balance);
 
 	return (
 		<aside className="wallets_sidebar">
@@ -145,20 +148,26 @@ export const WalletSidebar = ({ balances }) => {
 								<div className="wallets_company">Fill the form</div>
 							</div>
 						</div>
-						<form className="operations_form">
+						<form className="operations_form" onSubmit={onSubmit}>
 							<div className="operations_balance">
 								<div className="operations_label">Total balance</div>
-								<div className="operations_counter">0.125241 BTC</div>
-								<div className="operations_price">7.201.54 USD</div>
+								<div className="operations_counter">{totalBtc} BTC</div>
+								<div className="operations_price">{totalPriceFormated}</div>
 							</div>
 							<div className="operations_field field js-field" id="symbol">
 								<div className="field_label">symbol</div>
 								<div className="field_warp">
 									<input
 										type="text"
-										className="field_input js-field-input"
+										className={
+											state.isError.symbol.length > 0
+												? "field_input js-field-input is-invalid"
+												: "field_input js-field-input"
+										}
+										name="symbol"
 										onFocus={() => inputFocus("symbol")}
 										onBlur={(e) => removeActive("symbol", e)}
+										onChange={formValChange}
 									/>
 								</div>
 							</div>
@@ -167,17 +176,39 @@ export const WalletSidebar = ({ balances }) => {
 								<div className="field_warp">
 									<input
 										type="text"
-										className="field_input js-field-input"
+										className={
+											state.isError.amount.length > 0
+												? "field_input js-field-input is-invalid"
+												: "field_input js-field-input"
+										}
+										name="amount"
 										onFocus={() => inputFocus("amount")}
 										onBlur={(e) => removeActive("amount", e)}
+										onChange={formValChange}
 									/>
 								</div>
 							</div>
 							<button
 								type="submit"
-								className="btn operations_btn btn_blue btn_full">
+								className="btn operations_btn btn_blue btn_full"
+								disabled={
+									state.isError.symbol.length > 0 ||
+									state.isError.amount.length > 0
+								}>
 								Create
 							</button>
+							<div className="field_errors">
+								{state.isError.symbol.length > 0 && (
+									<span className="invalid-feedback">
+										{state.isError.symbol}
+									</span>
+								)}
+								{state.isError.amount.length > 0 && (
+									<span className="invalid-feedback">
+										{state.isError.amount}
+									</span>
+								)}
+							</div>
 						</form>
 					</>
 				)}

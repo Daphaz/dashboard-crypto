@@ -16,8 +16,8 @@ const Logic = (balance, totalBtc) => {
 		}
 	};
 
-	const handleStarActive = () => {
-		const fav = document.querySelector(".favorite");
+	const handleStarActive = (id) => {
+		const fav = document.getElementById(`fav${id}`);
 		fav.classList.toggle("active");
 	};
 

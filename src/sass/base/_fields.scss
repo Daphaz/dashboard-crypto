@@ -35,6 +35,23 @@
 			background-color: $white;
 			border-color: $blue;
 		}
+		&.is-invalid {
+			border-color: $red;
+		}
+	}
+	&_errors {
+		display: flex;
+		flex-wrap: wrap;
+		text-align: center;
+		.invalid-feedback {
+			width: 100%;
+			font-size: 1.4rem;
+			font-weight: 500;
+			color: $red;
+			&:first-child {
+				margin-bottom: 1rem;
+			}
+		}
 	}
 }
 
