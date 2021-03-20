@@ -36,10 +36,6 @@ export const seriesWidget = (data) => [
 
 // Totaal balance Homepage
 export const optionBalance = (labels, colors) => ({
-	fontFamily: "Poppins, sans-serif",
-	fontSize: 13,
-	fontWeight: 500,
-	foreColor: "#808191",
 	chart: {
 		height: "100%",
 		type: "radialBar",
@@ -49,9 +45,13 @@ export const optionBalance = (labels, colors) => ({
 			dataLabels: {
 				name: {
 					fontSize: "16px",
+					fontWeight: 500,
+					fontFamily: "Poppins, sans-serif",
 				},
 				value: {
 					fontSize: "14px",
+					color: "#808191",
+					fontFamily: "Rubik, sans-serif",
 				},
 				total: {
 					show: false,
@@ -59,6 +59,6 @@ export const optionBalance = (labels, colors) => ({
 			},
 		},
 	},
-	colors,
 	labels,
+	colors,
 });

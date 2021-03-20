@@ -101,11 +101,31 @@
 		}
 	}
 	&_inner {
+		.card_title {
+			margin-bottom: 1.6rem;
+		}
+		.card_price {
+			margin-bottom: 3.2rem;
+		}
 		@include d {
 			text-align: left;
+			.card_price {
+				margin-bottom: 2.4rem;
+			}
 		}
 		@include m {
 			text-align: center;
 		}
+	}
+	&_currency {
+		display: inline-block;
+		margin-bottom: 0.3rem;
+		padding: 0 1.1rem;
+		border-radius: 1.3rem;
+		background: $orange;
+		font-size: 1.6rem;
+		font-weight: 600;
+		line-height: 2.6rem;
+		color: $white;
 	}
 }

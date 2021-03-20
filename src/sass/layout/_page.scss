@@ -274,6 +274,27 @@
 			color: $gray-dark;
 		}
 	}
+	.card {
+		&_widget {
+			background: $dark-color;
+			&::before {
+				background: rgba(36, 39, 49, 0.5);
+			}
+			&::after {
+				display: none;
+			}
+		}
+		&_next {
+			background: $dark-color;
+			border: 1px solid $dark-border;
+			.icon {
+				fill: $white;
+				&:hover {
+					fill: $blue;
+				}
+			}
+		}
+	}
 }
 
 .no-scroll {

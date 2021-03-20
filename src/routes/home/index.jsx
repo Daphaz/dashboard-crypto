@@ -4,7 +4,7 @@ import { Slider } from "../../components/slider";
 import { Widgets } from "../../components/widgets";
 import { CardWidget } from "../../components/card/CardWidget";
 
-const Home = ({ items }) => {
+const Home = ({ items, history }) => {
 	return (
 		<>
 			{items && (
@@ -15,7 +15,7 @@ const Home = ({ items }) => {
 							<Widgets items={items} />
 						</div>
 						<div className="page_col">
-							<CardWidget />
+							<CardWidget history={history} />
 						</div>
 					</div>
 				</Layout>

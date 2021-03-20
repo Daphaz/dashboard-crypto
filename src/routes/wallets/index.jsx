@@ -9,7 +9,7 @@ import { WalletSidebar } from "../../components/wallets/sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { filterCoins } from "../../redux/balances/action";
 
-const Wallets = () => {
+const Wallets = ({ location }) => {
 	const dispatch = useDispatch();
 	const balances = useSelector((s) => s.balances);
 	const coins = useSelector((s) => s.coins);
@@ -25,7 +25,7 @@ const Wallets = () => {
 			{balances && balances.items[0].name ? (
 				<div className="wallets">
 					<div className="wallets_container">
-						<TotalWallet balances={balances.items} />
+						<TotalWallet balances={balances.items} location={location} />
 						<BalanceList balances={balances.items} />
 					</div>
 					<WalletSidebar balances={balances.items} />
