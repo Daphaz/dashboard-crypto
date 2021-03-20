@@ -11,9 +11,10 @@
 
 // Components
 @import "./components/icons", "./components/buttons", "./components/slider",
-	"./components/widgets";
-
+	"./components/widgets", "./components/card", "./components/dropdown",
+	"./components/operations";
 // Pages
+@import "./pages/wallets";
 
 //Vendor
 @import "./vendor/owl.carousel";

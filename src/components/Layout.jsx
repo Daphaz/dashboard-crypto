@@ -2,13 +2,13 @@ import React from "react";
 import { Header } from "./header";
 import { Sidebar } from "./sidebar";
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children, border }) => {
 	return (
 		<div className="page">
 			<Sidebar />
 			<div className="page_content">
-				<Header />
-				<div className="page_row">{children}</div>
+				<Header border={border} />
+				{children}
 			</div>
 		</div>
 	);

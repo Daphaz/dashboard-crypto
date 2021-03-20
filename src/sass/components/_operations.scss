@@ -1,0 +1,33 @@
+.operations {
+	&_field,
+	&_balance {
+		margin-bottom: 1.6rem;
+	}
+	&_balance {
+		padding: 2rem 2.2rem;
+		border-radius: 1.2rem;
+		background: rgba(79, 191, 103, 0.2);
+	}
+	&_label {
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1.6;
+		letter-spacing: 0.9px;
+		text-transform: uppercase;
+		color: $gray;
+	}
+	&_counter {
+		margin-bottom: 2px;
+		font-weight: 600;
+		font-size: 1.4rem;
+	}
+	&_price {
+		font-size: 1.2rem;
+		line-height: 1.33333;
+		font-weight: 500;
+		color: #808191;
+	}
+	&_btn:not(:last-child) {
+		margin-bottom: 1.6rem;
+	}
+}

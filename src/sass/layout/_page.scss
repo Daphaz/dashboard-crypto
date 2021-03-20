@@ -88,6 +88,9 @@
 .dark {
 	background: $dark-bg;
 	color: $white;
+	.btn_border {
+		border-color: $dark-border;
+	}
 	.icon_dark {
 		display: block;
 	}
@@ -212,6 +215,63 @@
 
 		&_item {
 			background: $dark-color;
+		}
+		&_box {
+			background-color: $dark-color;
+		}
+	}
+	.wallets_warpper {
+		background-color: $dark-color;
+		&::before {
+			display: none;
+		}
+		&::after {
+			top: 1rem;
+			left: 1rem;
+			right: 1rem;
+			bottom: -1rem;
+			z-index: -1;
+			background: rgba(36, 39, 49, 0.5);
+		}
+	}
+	.wallets_warp {
+		@include x {
+			background: $dark-color;
+		}
+	}
+	.wallets_item {
+		border-color: $dark-border;
+	}
+	.balances_row:nth-child(2n + 1) {
+		background: rgba(228, 228, 228, 0.04);
+	}
+	.wallets_parameters,
+	.wallets_parameter {
+		border-color: $dark-border;
+	}
+	.wallets_close .icon.icon-close {
+		fill: $gray;
+	}
+	.dropdown {
+		&_head {
+			background: $dark-color;
+			svg {
+				fill: $white;
+			}
+		}
+		&_body {
+			background: $dark-active;
+			border-color: $dark-border;
+		}
+	}
+	.field_input {
+		background: rgba(228, 228, 228, 0.03);
+		color: $white;
+	}
+	.btn_blue {
+		&:disabled {
+			background-color: $dark-color;
+			color: $gray-dark;
 		}
 	}
 }

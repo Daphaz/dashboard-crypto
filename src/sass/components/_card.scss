@@ -1,0 +1,25 @@
+.card {
+	position: relative;
+	&_head {
+		@extend %flex-between;
+		align-items: center;
+		margin-bottom: 2.4rem;
+	}
+	&_btns {
+		display: flex;
+		margin: 0 -4px;
+		&_mt40 {
+			margin-top: 4rem;
+		}
+		.card_btn {
+			flex-grow: 1;
+			min-width: auto;
+			margin: 0 4px;
+			padding: 0;
+			.icon-edit {
+				font-size: 1.6rem;
+				margin-right: 0.5rem;
+			}
+		}
+	}
+}

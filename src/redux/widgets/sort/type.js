@@ -1,2 +1,3 @@
 export const VARIANT_ACTIVE = "VARIANT_ACTIVE";
 export const CORE_ACTIVE = "CORE_ACTIVE";
+export const MARKET_ACTIVE = "MARKET_ACTIVE";
