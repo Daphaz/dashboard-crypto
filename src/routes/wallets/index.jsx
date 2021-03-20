@@ -6,21 +6,23 @@ import { LoadingTotalWallet } from "../../components/wallets/LoadingTotalWallet"
 import { BalanceList } from "../../components/wallets/BalanceList";
 import { LoadingBalanceList } from "../../components/wallets/LoadingBalanceList";
 import { WalletSidebar } from "../../components/wallets/sidebar";
-import { apiCallCoins } from "../../redux/coins/action";
+import { useDispatch, useSelector } from "react-redux";
 import { filterCoins } from "../../redux/balances/action";
-import { connect } from "react-redux";
 
-const Wallets = ({ apiCallCoins, coins, balances, filterCoins }) => {
+const Wallets = () => {
+	const dispatch = useDispatch();
+	const balances = useSelector((s) => s.balances);
+	const coins = useSelector((s) => s.coins);
+
 	useEffect(() => {
-		apiCallCoins();
 		if (coins.coins.length > 0) {
-			filterCoins(coins.coins, balances.items);
+			dispatch(filterCoins(coins.coins, balances.items));
 		}
-	}, [apiCallCoins, filterCoins, coins.coins]);
+	}, [filterCoins, coins.coins]);
 
 	return (
 		<Layout>
-			{!balances.isLoading && balances.items[0].name ? (
+			{balances && balances.items[0].name ? (
 				<div className="wallets">
 					<div className="wallets_container">
 						<TotalWallet balances={balances.items} />
@@ -40,18 +42,4 @@ const Wallets = ({ apiCallCoins, coins, balances, filterCoins }) => {
 	);
 };
 
-const mapState = (state) => {
-	return {
-		coins: state.coins,
-		balances: state.balances,
-	};
-};
-
-const mapDispatch = (dispatch) => {
-	return {
-		apiCallCoins: () => dispatch(apiCallCoins()),
-		filterCoins: (coins, balances) => dispatch(filterCoins(coins, balances)),
-	};
-};
-
-export default connect(mapState, mapDispatch)(Wallets);
+export default Wallets;

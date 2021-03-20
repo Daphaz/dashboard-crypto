@@ -1,5 +1,11 @@
 .card {
 	position: relative;
+	&:not(:last-child) {
+		margin-bottom: 9.8rem;
+		@include d {
+			margin-bottom: 6.4rem;
+		}
+	}
 	&_head {
 		@extend %flex-between;
 		align-items: center;
@@ -20,6 +26,86 @@
 				font-size: 1.6rem;
 				margin-right: 0.5rem;
 			}
+		}
+	}
+	&_widget {
+		padding: 3.2rem;
+		border-radius: 2.4rem;
+		background: $white;
+		@include d {
+			display: flex;
+			.card_chart {
+				flex-shrink: 0;
+				width: 24rem;
+				margin-right: 2.4rem;
+			}
+		}
+		@include m {
+			display: block;
+			.card_chart {
+				width: 100%;
+				margin-right: 0;
+			}
+		}
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			border-radius: 2.4rem;
+		}
+		&::before {
+			top: 0.8rem;
+			left: 0.8rem;
+			right: 0.8rem;
+			bottom: -0.8rem;
+			z-index: -1;
+			background: rgba(255, 255, 255, 0.5);
+		}
+		&::after {
+			top: 3.2rem;
+			left: 3.2rem;
+			right: 3.2rem;
+			bottom: -3.2rem;
+			z-index: -2;
+			background: $gray-light;
+			filter: blur(8.6985rem);
+		}
+	}
+	&_next {
+		@extend %flex-center;
+		position: absolute;
+		top: 1.6rem;
+		right: 1.6rem;
+		z-index: 3;
+		width: 2.4rem;
+		height: 2.4rem;
+		border-radius: 50%;
+		background: $white;
+		box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
+		.icon {
+			font-size: 1.4rem;
+			fill: $black;
+			transition: fill 0.2s;
+			&:hover {
+				fill: $gray;
+			}
+		}
+	}
+	&_chart {
+		&_total-balance {
+			height: 22rem;
+			margin-top: -1.5rem;
+			@include d {
+				margin-top: 0;
+			}
+		}
+	}
+	&_inner {
+		@include d {
+			text-align: left;
+		}
+		@include m {
+			text-align: center;
 		}
 	}
 }

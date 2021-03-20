@@ -1,19 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Sorting } from "./Sorting";
 import { Item } from "./items";
-import { connect } from "react-redux";
-import { apiCall } from "../../redux/widgets/item/action";
 import { ItemLoading } from "./items/ItemLoading";
 import { SortLoading } from "./SortLoading";
 
-const Widgets = ({ items, apiCall }) => {
-	useEffect(() => {
-		apiCall();
-	}, [apiCall]);
-
+export const Widgets = ({ items }) => {
 	return (
 		<>
-			{!items.isLoading && items.error === "" ? (
+			{items.items.length > 0 ? (
 				<div className="widgets">
 					<Sorting />
 					<div className="widgets_list">
@@ -39,17 +33,3 @@ const Widgets = ({ items, apiCall }) => {
 		</>
 	);
 };
-
-const mapState = (state) => {
-	return {
-		items: state.itemWidget,
-	};
-};
-
-const mapDispatch = (dispatch) => {
-	return {
-		apiCall: () => dispatch(apiCall()),
-	};
-};
-
-export default connect(mapState, mapDispatch)(Widgets);

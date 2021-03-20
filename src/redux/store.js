@@ -12,6 +12,8 @@ import {
 import reducerWidget from "./widgets/item/reducer";
 import reducerCoins from "./coins/reducer";
 import reducerBalance from "./balances/reducer";
+import reducerTheme from "./theme/reducer";
+import reducerAddWallet from "./showWallet/reducer";
 
 const store = createStore(
 	combineReducers({
@@ -25,6 +27,8 @@ const store = createStore(
 		itemWidget: reducerWidget,
 		coins: reducerCoins,
 		balances: reducerBalance,
+		theme: reducerTheme,
+		toggleAddWallet: reducerAddWallet,
 	}),
 	applyMiddleware(thunk)
 );

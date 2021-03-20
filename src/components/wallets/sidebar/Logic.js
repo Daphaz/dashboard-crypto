@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import { WalletContext } from "../../../helpers/context";
+import { useState } from "react";
 import { priceFormatted } from "../../../helpers/utils";
 import { useSelector, useDispatch } from "react-redux";
 import { marketActive } from "../../../redux/widgets/sort/actions";
@@ -7,6 +6,10 @@ import {
 	activeBalanceWidget,
 	addBalance,
 } from "../../../redux/balances/action";
+import {
+	disableAddWallet,
+	enableAddWallet,
+} from "../../../redux/showWallet/action";
 
 const initalState = {
 	symbol: "",
@@ -20,12 +23,12 @@ const initalState = {
 const Logic = (balances) => {
 	const [state, setState] = useState(initalState);
 	const dispatch = useDispatch();
-	const { setShowAddWallet, showAddWallet } = useContext(WalletContext);
 	const devise = useSelector((s) => s.devises.filter((f) => f.active === true));
 	const sortMarkets = useSelector((s) => s.sortMarket);
 	const coins = useSelector((s) => s.coins.coins);
 	const coinsSymbol = coins.map((c) => c.symbol);
 	const balanceSymbol = balances.map((c) => c.symbol);
+	const showAddWallet = useSelector((s) => s.toggleAddWallet.addWallet);
 
 	const handleActiveDropdown = () => {
 		const drop = document.querySelector(".card .dropdown");
@@ -40,7 +43,7 @@ const Logic = (balances) => {
 		wrapper.classList.remove("small");
 		walletBody.style.display = "block";
 		operations.style.display = "none";
-		setShowAddWallet(false);
+		dispatch(disableAddWallet());
 	};
 
 	const handleClickCloseAdd = () => {
@@ -48,7 +51,7 @@ const Logic = (balances) => {
 		const warpper = document.querySelector(".wallets_warpper");
 		side.classList.remove("visible");
 		warpper.classList.remove("small");
-		setShowAddWallet(false);
+		dispatch(disableAddWallet());
 	};
 
 	const handleEdit = () => {
@@ -59,7 +62,7 @@ const Logic = (balances) => {
 	};
 
 	const handleCreate = () => {
-		setShowAddWallet(true);
+		dispatch(enableAddWallet());
 	};
 
 	const inputFocus = (value) => {
