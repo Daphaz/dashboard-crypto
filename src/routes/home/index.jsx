@@ -1,21 +1,26 @@
 import React from "react";
 import { Layout } from "../../components/Layout";
 import { Slider } from "../../components/slider";
-import Widgets from "../../components/widgets";
+import { Widgets } from "../../components/widgets";
+import { CardWidget } from "../../components/card/CardWidget";
 
-const Home = () => {
+const Home = ({ items, history }) => {
 	return (
-		<Layout border>
-			<div className="page_row">
-				<div className="page_col">
-					<Slider />
-					<Widgets />
-				</div>
-				<div className="page_col">
-					<h1>Home 2</h1>
-				</div>
-			</div>
-		</Layout>
+		<>
+			{items && (
+				<Layout border>
+					<div className="page_row">
+						<div className="page_col">
+							<Slider />
+							<Widgets items={items} />
+						</div>
+						<div className="page_col">
+							<CardWidget history={history} />
+						</div>
+					</div>
+				</Layout>
+			)}
+		</>
 	);
 };
 

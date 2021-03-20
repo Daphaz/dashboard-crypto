@@ -1,6 +1,6 @@
+//Widgets Chart
 export const optionWidget = (labels, color) => ({
 	chart: {
-		group: "sparklines",
 		type: "line",
 		height: "100%",
 		sparkline: {
@@ -33,3 +33,32 @@ export const seriesWidget = (data) => [
 		data,
 	},
 ];
+
+// Totaal balance Homepage
+export const optionBalance = (labels, colors) => ({
+	chart: {
+		height: "100%",
+		type: "radialBar",
+	},
+	plotOptions: {
+		radialBar: {
+			dataLabels: {
+				name: {
+					fontSize: "16px",
+					fontWeight: 500,
+					fontFamily: "Poppins, sans-serif",
+				},
+				value: {
+					fontSize: "14px",
+					color: "#808191",
+					fontFamily: "Rubik, sans-serif",
+				},
+				total: {
+					show: false,
+				},
+			},
+		},
+	},
+	labels,
+	colors,
+});

@@ -1,14 +1,13 @@
-import { useContext } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { priceFormatted } from "../../helpers/utils";
-import { WalletContext } from "../../helpers/context";
+import { enableAddWallet } from "../../redux/showWallet/action";
 
 const Logic = (balances) => {
-	const { setShowAddWallet } = useContext(WalletContext);
+	const dispatch = useDispatch();
 	const devise = useSelector((s) => s.devises.filter((d) => d.active === true));
 
 	const handleCreateWallet = () => {
-		setShowAddWallet(true);
+		dispatch(enableAddWallet());
 		const side = document.querySelector(".wallets_sidebar");
 		const wrapper = document.querySelector(".wallets_warpper");
 		side.classList.toggle("visible");

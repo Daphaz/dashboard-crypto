@@ -1,9 +1,10 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import { CgShapeCircle } from "react-icons/cg";
 import { IoWalletOutline } from "react-icons/io5";
 import Logic from "./Logic";
 
-const TotalWallet = ({ balances }) => {
+const TotalWallet = ({ balances, location }) => {
 	const {
 		bitcoinWallet,
 		handleCreateWallet,
@@ -13,6 +14,12 @@ const TotalWallet = ({ balances }) => {
 		totalPriceFormated,
 		totalPriceOtherWalletFormated,
 	} = Logic(balances);
+
+	useEffect(() => {
+		if (location.state !== null) {
+			handleCreateWallet();
+		}
+	}, [location]);
 
 	return (
 		<div className="wallets_warpper">

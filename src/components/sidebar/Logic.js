@@ -1,19 +1,18 @@
-import { useState, useContext } from "react";
-import { useSelector } from "react-redux";
-import { ThemeContext } from "../../helpers/context";
+import { useSelector, useDispatch } from "react-redux";
+import { themeDark, themeLight } from "../../redux/theme/action";
 
 const Logic = () => {
-	const [toggle, setToggle] = useState(false);
-	const { setIsDark } = useContext(ThemeContext);
+	const dispatch = useDispatch();
+	const toggle = useSelector((s) => s.theme.isDark);
 
 	const toggleDarkTheme = () => {
 		if (!toggle) {
 			document.body.classList.add("dark");
+			dispatch(themeDark());
 		} else {
 			document.body.classList.remove("dark");
+			dispatch(themeLight());
 		}
-		setToggle(!toggle);
-		setIsDark(!toggle);
 	};
 
 	const closeSidebar = () => {

@@ -72,6 +72,9 @@ body {
 	&-gray {
 		color: $gray !important;
 	}
+	&-green {
+		color: $green;
+	}
 }
 
 .bg {
@@ -80,5 +83,11 @@ body {
 	}
 	&-blue {
 		background: $blue;
+	}
+}
+
+.text {
+	&-center {
+		text-align: center;
 	}
 }
