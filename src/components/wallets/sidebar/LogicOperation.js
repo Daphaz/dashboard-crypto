@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editBalance, deleteBalance } from "../../../redux/balances/action";
+import { formValid } from "../../../helpers/validationForm";
 
 const initialState = {
 	amount: "",
@@ -30,28 +31,6 @@ const LogicOperation = (handleClickClose, balance) => {
 	};
 
 	//Validation Form
-	const formValid = ({ isError, ...rest }) => {
-		let isValid = false;
-
-		Object.values(isError).forEach((val) => {
-			if (val.length > 0) {
-				isValid = false;
-			} else {
-				isValid = true;
-			}
-		});
-
-		Object.values(rest).forEach((val) => {
-			if (val === null) {
-				isValid = false;
-			} else {
-				isValid = true;
-			}
-		});
-
-		return isValid;
-	};
-
 	const onSubmit = (e) => {
 		e.preventDefault();
 

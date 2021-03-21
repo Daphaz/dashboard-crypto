@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { priceFormatted } from "../../../helpers/utils";
+import {
+	priceFormatted,
+	totalBtc,
+	totalFiat,
+	totalPriceFormated,
+	percent,
+} from "../../../helpers/utils";
+import { formValid } from "../../../helpers/validationForm";
 import { useSelector, useDispatch } from "react-redux";
 import { marketActive } from "../../../redux/widgets/sort/actions";
 import {
@@ -76,19 +83,10 @@ const Logic = (balances) => {
 		}
 	};
 
-	//balances Logic
-	const totalBtc = balances
-		.reduce((acc, val) => val.amountBtc + acc, 0)
-		.toFixed(8);
-	const totalFiat = balances.reduce(
-		(acc, val) => val.pricesTotal[devise[0].id] + acc,
-		0
-	);
-	const totalPriceFormated = priceFormatted(
-		totalFiat,
-		devise[0].locale,
-		devise[0].devise
-	);
+	const total = {
+		btc: totalBtc(balances),
+		formated: totalPriceFormated(totalFiat(balances, devise), devise),
+	};
 
 	let balance;
 	balances.forEach((b) => {
@@ -101,11 +99,11 @@ const Logic = (balances) => {
 					devise[0].devise
 				),
 				pricesTotal: priceFormatted(
-					b.pricesTotal[devise[0].id].toFixed(2),
+					b.pricesTotal[devise[0].id],
 					devise[0].locale,
 					devise[0].devise
 				),
-				percentTotal: `${((b.amountBtc / totalBtc) * 100).toFixed(2)} %`,
+				percentTotal: `${percent(b.amountBtc, total.btc).toFixed(2)} %`,
 			};
 		} else {
 			return;
@@ -136,28 +134,6 @@ const Logic = (balances) => {
 	const marketFilter = sortMarkets.filter((f) => f.active === true);
 
 	//Validation Form
-	const formValid = ({ isError, ...rest }) => {
-		let isValid = false;
-
-		Object.values(isError).forEach((val) => {
-			if (val.length > 0) {
-				isValid = false;
-			} else {
-				isValid = true;
-			}
-		});
-
-		Object.values(rest).forEach((val) => {
-			if (val === null) {
-				isValid = false;
-			} else {
-				isValid = true;
-			}
-		});
-
-		return isValid;
-	};
-
 	const validCoin = (val) => {
 		let isValid = false;
 		const symbol = val === "AVAX" ? val : val.toLowerCase();
@@ -285,8 +261,7 @@ const Logic = (balances) => {
 		sortMarkets,
 		handleActiveMarket,
 		marketFilter,
-		totalBtc,
-		totalPriceFormated,
+		total,
 		state,
 		onSubmit,
 		formValChange,

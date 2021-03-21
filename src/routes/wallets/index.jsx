@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { Layout } from "../../components/Layout";
-import TotalWallet from "../../components/wallets/TotalWallet";
+import { TotalWallet } from "../../components/wallets/TotalWallet";
 import { LoadingTotalWallet } from "../../components/wallets/LoadingTotalWallet";
 import { BalanceList } from "../../components/wallets/BalanceList";
 import { LoadingBalanceList } from "../../components/wallets/LoadingBalanceList";

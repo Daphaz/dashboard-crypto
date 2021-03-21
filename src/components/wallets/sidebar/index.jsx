@@ -21,8 +21,7 @@ export const WalletSidebar = ({ balances }) => {
 		sortMarkets,
 		handleActiveMarket,
 		marketFilter,
-		totalBtc,
-		totalPriceFormated,
+		total,
 		state,
 		onSubmit,
 		formValChange,
@@ -129,8 +128,8 @@ export const WalletSidebar = ({ balances }) => {
 									</div>
 								</div>
 								<Operations
-									totalBtc={totalBtc}
-									totalPriceFormated={totalPriceFormated}
+									totalBtc={total.btc}
+									totalPriceFormated={total.formated}
 									balance={balance}
 									handleClickClose={handleClickClose}
 								/>
@@ -156,8 +155,8 @@ export const WalletSidebar = ({ balances }) => {
 						<form className="operations_form" onSubmit={onSubmit}>
 							<div className="operations_balance">
 								<div className="operations_label">Total balance</div>
-								<div className="operations_counter">{totalBtc} BTC</div>
-								<div className="operations_price">{totalPriceFormated}</div>
+								<div className="operations_counter">{total.btc} BTC</div>
+								<div className="operations_price">{total.formated}</div>
 							</div>
 							<div className="operations_field field js-field" id="symbol">
 								<div className="field_label">symbol</div>

@@ -1,10 +1,9 @@
 import React from "react";
 import { Balance } from "./Balance";
+import { totalBtc } from "../../helpers/utils";
 
 export const BalanceList = ({ balances }) => {
-	const totalBtc = balances
-		.reduce((acc, val) => val.amountBtc + acc, 0)
-		.toFixed(8);
+	const total = totalBtc(balances);
 
 	return (
 		<div className="balances">
@@ -23,7 +22,7 @@ export const BalanceList = ({ balances }) => {
 					<Balance
 						key={balance.id}
 						balance={balance}
-						totalBtc={totalBtc}
+						totalBtc={total}
 						idItem={i}
 					/>
 				))}

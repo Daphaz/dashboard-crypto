@@ -4,14 +4,13 @@ import { CgShapeCircle } from "react-icons/cg";
 import { IoWalletOutline } from "react-icons/io5";
 import Logic from "./Logic";
 
-const TotalWallet = ({ balances, location }) => {
+export const TotalWallet = ({ balances, location }) => {
 	const {
 		bitcoinWallet,
 		handleCreateWallet,
 		otherTotalBtcAmount,
-		totalBtc,
+		total,
 		totalPriceBitcoinWalletFormated,
-		totalPriceFormated,
 		totalPriceOtherWalletFormated,
 	} = Logic(balances);
 
@@ -27,12 +26,10 @@ const TotalWallet = ({ balances, location }) => {
 				<div className="wallets_total">
 					<div className="wallets_title h6">Total Balance</div>
 					<div className="wallets_flex">
-						<div className="wallets_number h3">{totalBtc}</div>
+						<div className="wallets_number h3">{total.btc}</div>
 						<div className="wallets_currency">BTC</div>
 					</div>
-					<div className="wallets_price h5 color-gray">
-						{totalPriceFormated}
-					</div>
+					<div className="wallets_price h5 color-gray">{total.formated}</div>
 				</div>
 				{bitcoinWallet && (
 					<div className="wallets_group">
@@ -98,5 +95,3 @@ const TotalWallet = ({ balances, location }) => {
 		</div>
 	);
 };
-
-export default TotalWallet;

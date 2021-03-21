@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { priceFormatted } from "../../helpers/utils";
+import { priceFormatted, percent } from "../../helpers/utils";
 import { activeBalance } from "../../redux/balances/action";
 
 const Logic = (balance, totalBtc) => {
@@ -28,12 +28,12 @@ const Logic = (balance, totalBtc) => {
 	);
 
 	const priceBalanceTotalFormated = priceFormatted(
-		balance.pricesTotal[devise[0].id].toFixed(2),
+		balance.pricesTotal[devise[0].id],
 		devise[0].locale,
 		devise[0].devise
 	);
 
-	const totalPercent = ((balance.amountBtc / totalBtc) * 100).toFixed(2);
+	const totalPercent = percent(balance.amountBtc, totalBtc).toFixed(2);
 
 	return {
 		handleClickBalance,

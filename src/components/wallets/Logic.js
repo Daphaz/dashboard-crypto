@@ -1,5 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
-import { priceFormatted } from "../../helpers/utils";
+import {
+	priceFormatted,
+	totalBtc,
+	totalFiat,
+	totalPriceFormated,
+	percent,
+} from "../../helpers/utils";
 import { enableAddWallet } from "../../redux/showWallet/action";
 
 const Logic = (balances) => {
@@ -13,34 +19,21 @@ const Logic = (balances) => {
 		side.classList.toggle("visible");
 		wrapper.classList.toggle("small");
 	};
-	const totalBtc = balances
-		.reduce((acc, val) => val.amountBtc + acc, 0)
-		.toFixed(8);
-	const totalFiat = balances.reduce(
-		(acc, val) => val.pricesTotal[devise[0].id] + acc,
-		0
-	);
-	const totalPriceFormated = priceFormatted(
-		totalFiat,
-		devise[0].locale,
-		devise[0].devise
-	);
+
+	const total = {
+		btc: totalBtc(balances),
+		fiat: totalFiat(balances, devise),
+		formated: totalPriceFormated(totalFiat(balances, devise), devise),
+	};
 
 	let bitcoinWallet = {};
-	let otherWallet = [];
 	balances.forEach((el) => {
 		if (el.symbol === "btc") {
-			let totalPercent = (el.amount / totalBtc) * 100;
+			let totalPercent = percent(el.amount, total.btc);
 			bitcoinWallet = {
 				...el,
 				totalPercent: totalPercent.toFixed(2),
 			};
-		} else {
-			let totalPercent = (el.amount / totalBtc) * 100;
-			otherWallet.push({
-				...el,
-				totalPercent: totalPercent.toFixed(2),
-			});
 		}
 	});
 
@@ -51,37 +44,20 @@ const Logic = (balances) => {
 	);
 
 	const totalPriceOtherWalletFormated = priceFormatted(
-		totalFiat - bitcoinWallet.pricesTotal[devise[0].id],
+		total.fiat - bitcoinWallet.pricesTotal[devise[0].id],
 		devise[0].locale,
 		devise[0].devise
 	);
 
-	const otherTotalBtcAmount = (totalBtc - bitcoinWallet.amount).toFixed(8);
-
-	//Balance
-	const handleClickBalance = () => {
-		const side = document.querySelector(".wallets_sidebar");
-		const wrapper = document.querySelector(".wallets_warpper");
-		side.classList.toggle("visible");
-		wrapper.classList.toggle("small");
-	};
-
-	const handleStarActive = () => {
-		const fav = document.querySelector(".favorite");
-		fav.classList.toggle("active");
-	};
+	const otherTotalBtcAmount = (total.btc - bitcoinWallet.amount).toFixed(8);
 
 	return {
 		bitcoinWallet,
-		otherWallet,
-		totalBtc,
-		totalPriceFormated,
+		total,
 		totalPriceBitcoinWalletFormated,
 		handleCreateWallet,
 		otherTotalBtcAmount,
 		totalPriceOtherWalletFormated,
-		handleClickBalance,
-		handleStarActive,
 	};
 };
 
