@@ -28,45 +28,45 @@ const reducerActivities = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_ACTIVITIES: {
 			const { date, amount, symbol } = action;
-			const add = {
-				id: state[state.length - 1].id + 1,
-				type: "add",
-				symbol,
-				amount,
-				date,
-			};
-			return {
+			const id = state[state.length - 1].id + 1;
+			return [
 				...state,
-				add,
-			};
+				{
+					id,
+					type: "add",
+					symbol,
+					amount,
+					date,
+				},
+			];
 		}
 		case EDIT_ACTIVITIES: {
 			const { date, amount, symbol } = action;
-			const edit = {
-				id: state[state.length - 1].id + 1,
-				type: "edit",
-				symbol,
-				amount,
-				date,
-			};
-			return {
+			const id = state[state.length - 1].id + 1;
+			return [
 				...state,
-				edit,
-			};
+				{
+					id,
+					type: "edit",
+					symbol,
+					amount,
+					date,
+				},
+			];
 		}
 		case DELETE_ACTIVITIES: {
 			const { date, amount, symbol } = action;
-			const del = {
-				id: state[state.length - 1].id + 1,
-				type: "delete",
-				symbol,
-				amount,
-				date,
-			};
-			return {
+			const id = state[state.length - 1].id + 1;
+			return [
 				...state,
-				del,
-			};
+				{
+					id,
+					type: "delete",
+					symbol,
+					amount,
+					date,
+				},
+			];
 		}
 
 		default:
