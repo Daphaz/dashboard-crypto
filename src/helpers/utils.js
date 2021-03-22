@@ -1,3 +1,5 @@
+import dateFormat from "dateformat";
+
 //Calc price and format
 export const priceFormatted = (price, locale, currency) => {
 	if (currency !== "BTC") {
@@ -46,4 +48,10 @@ export const getRandomColor = () => {
 //Calc math
 export const percent = (amount, total) => {
 	return (amount / total) * 100;
+};
+
+//Date
+export const dateFormated = (date) => {
+	dateFormat.masks.activities = "mmmm dd, yyyy";
+	return dateFormat(date, "activities");
 };

@@ -5,6 +5,7 @@ import {
 	totalFiat,
 	totalPriceFormated,
 	percent,
+	dateFormated,
 } from "../../../helpers/utils";
 import { formValid } from "../../../helpers/validationForm";
 import { useSelector, useDispatch } from "react-redux";
@@ -17,6 +18,7 @@ import {
 	disableAddWallet,
 	enableAddWallet,
 } from "../../../redux/showWallet/action";
+import { addActivities } from "../../../redux/activities/action";
 
 const initalState = {
 	symbol: "",
@@ -160,6 +162,7 @@ const Logic = (balances) => {
 
 			if (state.symbol !== "" && state.amount !== "") {
 				if (validCoin(state.symbol)) {
+					const date = dateFormated(new Date());
 					const symbol =
 						state.symbol === "AVAX" ? state.symbol : state.symbol.toLowerCase();
 					let items = {};
@@ -173,6 +176,9 @@ const Logic = (balances) => {
 					dispatch(addBalance(items));
 					handleClickCloseAdd();
 					setState(initalState);
+					dispatch(
+						addActivities(date, state.amount, state.symbol.toUpperCase())
+					);
 				} else {
 					let testSym = false;
 					balanceSymbol.forEach((s) => {

@@ -2,6 +2,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editBalance, deleteBalance } from "../../../redux/balances/action";
 import { formValid } from "../../../helpers/validationForm";
+import {
+	editActivities,
+	deleteActivities,
+} from "../../../redux/activities/action";
+import { dateFormated } from "../../../helpers/utils";
 
 const initialState = {
 	amount: "",
@@ -25,9 +30,13 @@ const LogicOperation = (handleClickClose, balance) => {
 	};
 
 	const removeItem = () => {
+		const date = dateFormated(new Date());
 		dispatch(deleteBalance(balance.id));
 		handleClickClose();
 		setState(initialState);
+		dispatch(
+			deleteActivities(date, balance.amount, balance.symbol.toUpperCase())
+		);
 	};
 
 	//Validation Form
@@ -38,9 +47,11 @@ const LogicOperation = (handleClickClose, balance) => {
 			const amount = parseFloat(state.amount);
 
 			if (state.amount !== "") {
+				const now = dateFormated(new Date());
 				dispatch(editBalance(balance.id, amount));
 				handleClickClose();
 				setState(initialState);
+				dispatch(editActivities(now, amount, balance.symbol.toUpperCase()));
 			} else {
 				setState({
 					...state,
