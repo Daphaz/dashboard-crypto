@@ -17,7 +17,7 @@ const Home = ({ items, history }) => {
 						</div>
 						<div className="page_col">
 							<CardWidget history={history} />
-							<Activities />
+							<Activities items={items} />
 						</div>
 					</div>
 				</Layout>
