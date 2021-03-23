@@ -200,25 +200,27 @@
 			fill: $white;
 		}
 	}
+
+	.select .list {
+		background-color: $dark-active;
+		border: 1px solid $dark-border;
+	}
+	.select:not(.select_empty) {
+		background: rgba(228, 228, 228, 0.03);
+	}
+	.select .option:hover:not(.option.selected) {
+		color: $white;
+	}
+	@include m {
+		.select {
+			background: rgba(228, 228, 228, 0.03);
+		}
+	}
+
 	.widgets {
 		&_variants {
 			.widgets_link.active {
 				background-color: $dark-active;
-			}
-		}
-		.select .list {
-			background-color: $dark-active;
-			border: 1px solid $dark-border;
-		}
-		.select:not(.select_empty) {
-			background: rgba(228, 228, 228, 0.03);
-		}
-		.select .option:hover:not(.option.selected) {
-			color: $white;
-		}
-		@include m {
-			.select {
-				background: rgba(228, 228, 228, 0.03);
 			}
 		}
 

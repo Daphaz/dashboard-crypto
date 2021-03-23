@@ -70,4 +70,20 @@
 			}
 		}
 	}
+
+	&_select {
+		@include m {
+			.select {
+				height: 6.4rem;
+				padding-left: 2.4rem;
+				padding-right: 6.4rem;
+				border-radius: 1.6rem;
+				line-height: 6.4rem;
+				font-size: 1.8rem;
+			}
+			.icon-current {
+				right: 2.4rem;
+			}
+		}
+	}
 }

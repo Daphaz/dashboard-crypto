@@ -2,7 +2,12 @@ import React from "react";
 import OwlCarousel from "react-owl-carousel2";
 import { ImCoinDollar } from "react-icons/im";
 import { GiBoxingGlove, GiChart } from "react-icons/gi";
-import { BiCoinStack, BiLineChart, BiBarChartAlt } from "react-icons/bi";
+import {
+	BiCoinStack,
+	BiLineChart,
+	BiBarChartAlt,
+	BiChevronUp,
+} from "react-icons/bi";
 
 const options = {
 	items: 6,
@@ -28,12 +33,22 @@ const options = {
 };
 
 export const Categories = () => {
+	const handleToggle = (id) => {
+		const el = document.getElementById(id);
+		el.classList.toggle("open");
+	};
+
 	return (
 		<div className="categories">
 			<div className="categories_title h5 mobile-hide">Categories</div>
 			<div className="categories_select mobile-show">
-				<div className="nice-select select">
-					<span className="current">Top 100</span>
+				<div id="cat-select" className="nice-select select">
+					<div className="icon-current">
+						<BiChevronUp />
+					</div>
+					<span className="current" onClick={() => handleToggle("cat-select")}>
+						Top 100
+					</span>
 					<ul className="list">
 						<li className="option selected focus">Top 100</li>
 						<li className="option">Top Gainers</li>
