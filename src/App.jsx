@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./routes/home";
 import Wallets from "./routes/wallets";
+import Prices from "./routes/prices";
 import { apiCallCoins } from "./redux/coins/action";
 import { apiCall } from "./redux/widgets/item/action";
 import { connect } from "react-redux";
@@ -24,6 +25,11 @@ const App = ({ apiCall, apiCallCoins, items }) => {
 				exact
 				path="/wallets"
 				component={(props) => <Wallets {...props} />}
+			/>
+			<Route
+				exact
+				path="/prices"
+				component={(props) => <Prices items={items} {...props} />}
 			/>
 			<Redirect from="/" to="/home" />
 		</Switch>
