@@ -8,7 +8,7 @@ import { apiCallCoins } from "./redux/coins/action";
 import { apiCall } from "./redux/widgets/item/action";
 import { connect } from "react-redux";
 
-const App = ({ apiCall, apiCallCoins, items }) => {
+const App = ({ apiCall, apiCallCoins, items, coins }) => {
 	useEffect(() => {
 		apiCall();
 		apiCallCoins();
@@ -29,7 +29,7 @@ const App = ({ apiCall, apiCallCoins, items }) => {
 			<Route
 				exact
 				path="/prices"
-				component={(props) => <Prices items={items} {...props} />}
+				component={(props) => <Prices coins={coins} {...props} />}
 			/>
 			<Redirect from="/" to="/home" />
 		</Switch>
