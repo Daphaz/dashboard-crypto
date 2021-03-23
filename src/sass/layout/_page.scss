@@ -311,6 +311,18 @@
 			border-color: $dark-border;
 		}
 	}
+
+	.categories {
+		&_item {
+			background: $dark-color;
+			color: $white;
+		}
+		.owl-carousel {
+			.owl-dot {
+				background: rgba(255, 255, 255, 0.5);
+			}
+		}
+	}
 }
 
 .no-scroll {
