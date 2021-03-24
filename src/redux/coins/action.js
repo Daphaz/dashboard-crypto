@@ -86,37 +86,51 @@ export const apiCallCoins = () => {
 					},
 					series: u.sparkline_in_7d.price,
 					label: u.sparkline_in_7d.price.map((e, i) => i),
+					total_volumes: [u.total_volume],
+					market_caps: [u.market_cap],
 				}));
 
 				const dataEur = eur.map((u) => ({
 					id: u.id,
 					prices: u.current_price,
+					total_volume: u.total_volume,
+					market_cap: u.market_cap,
 				}));
 
 				const dataJpy = jpy.map((u) => ({
 					id: u.id,
 					prices: u.current_price,
+					total_volume: u.total_volume,
+					market_cap: u.market_cap,
 				}));
 
 				const dataBtc = btc.map((u) => ({
 					id: u.id,
 					prices: u.current_price,
+					total_volume: u.total_volume,
+					market_cap: u.market_cap,
 				}));
 
 				for await (let u of dataUsd) {
 					for (let e of dataEur) {
 						if (u.id === e.id) {
 							u.prices.push(e.prices);
+							u.total_volumes.push(e.total_volume);
+							u.market_caps.push(e.market_cap);
 						}
 					}
 					for (let j of dataJpy) {
 						if (u.id === j.id) {
 							u.prices.push(j.prices);
+							u.total_volumes.push(j.total_volume);
+							u.market_caps.push(j.market_cap);
 						}
 					}
 					for (let b of dataBtc) {
 						if (u.id === b.id) {
 							u.prices.push(b.prices);
+							u.total_volumes.push(b.total_volume);
+							u.market_caps.push(b.market_cap);
 						}
 					}
 				}
