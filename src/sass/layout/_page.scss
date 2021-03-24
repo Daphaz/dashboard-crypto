@@ -325,6 +325,14 @@
 			}
 		}
 	}
+
+	.prices_row {
+		color: $white;
+	}
+
+	.prices_row:nth-child(2n + 1) {
+		background: rgba(228, 228, 228, 0.03);
+	}
 }
 
 .no-scroll {
