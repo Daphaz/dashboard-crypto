@@ -2,15 +2,15 @@ import React from "react";
 import { Layout } from "../../components/Layout";
 import { Search } from "../../components/search";
 import { Categories } from "../../components/categories";
+import { PricesList } from "../../components/prices";
 
 const Prices = ({ coins }) => {
-	console.log(coins);
 	return (
 		<Layout>
 			<div className="page_container">
 				<Search />
 				<Categories />
-				<div className="prices"></div>
+				<PricesList coins={coins.coins} />
 			</div>
 		</Layout>
 	);
