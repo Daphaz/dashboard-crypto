@@ -1,3 +1,8 @@
 export const LOAD_DATA_COINS = "LOAD_DATA_COINS";
 export const LOAD_DATA_COINS_SUCESS = "LOAD_DATA_COINS_SUCESS";
 export const LOAD_DATA_COINS_ERROR = "LOAD_DATA_COINS_ERROR";
+export const SORT_COIN_AZ = "SORT_COIN_AZ";
+export const SORT_COIN_VOL = "SORT_COIN_VOL";
+export const SORT_COIN_24 = "SORT_COIN_24";
+export const SORT_COIN_PRICE = "SORT_COIN_PRICE";
+export const SORT_COIN_MC = "SORT_COIN_MC";

@@ -4,6 +4,11 @@ import {
 	LOAD_DATA_COINS,
 	LOAD_DATA_COINS_ERROR,
 	LOAD_DATA_COINS_SUCESS,
+	SORT_COIN_AZ,
+	SORT_COIN_VOL,
+	SORT_COIN_24,
+	SORT_COIN_MC,
+	SORT_COIN_PRICE,
 } from "./type";
 
 export const loadApiCoins = () => {
@@ -23,6 +28,36 @@ export const loadCoinsError = (error) => {
 	return {
 		type: LOAD_DATA_COINS_ERROR,
 		payload: error,
+	};
+};
+
+export const sortCoinAz = () => {
+	return {
+		type: SORT_COIN_AZ,
+	};
+};
+
+export const sortCoinVol = () => {
+	return {
+		type: SORT_COIN_VOL,
+	};
+};
+
+export const sortCoin24 = () => {
+	return {
+		type: SORT_COIN_24,
+	};
+};
+
+export const sortCoinMc = () => {
+	return {
+		type: SORT_COIN_MC,
+	};
+};
+
+export const sortCoinPrice = () => {
+	return {
+		type: SORT_COIN_PRICE,
 	};
 };
 

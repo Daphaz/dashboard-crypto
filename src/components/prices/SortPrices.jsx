@@ -2,6 +2,13 @@ import React from "react";
 import { BiChevronUp, BiCheck } from "react-icons/bi";
 import { useSelector, useDispatch } from "react-redux";
 import { variantActive } from "../../redux/widgets/sort/actions";
+import {
+	sortCoinAz,
+	sortCoin24,
+	sortCoinMc,
+	sortCoinPrice,
+	sortCoinVol,
+} from "../../redux/coins/action";
 
 export const SortPrices = () => {
 	const dispatch = useDispatch();
@@ -23,22 +30,27 @@ export const SortPrices = () => {
 			switch (id) {
 				case 0:
 					dispatch(variantActive(id));
+					dispatch(sortCoinMc());
 					handleRemove();
 					break;
 				case 1:
 					dispatch(variantActive(id));
+					dispatch(sortCoinAz());
 					handleRemove();
 					break;
 				case 2:
 					dispatch(variantActive(id));
+					dispatch(sortCoinVol());
 					handleRemove();
 					break;
 				case 3:
 					dispatch(variantActive(id));
+					dispatch(sortCoin24());
 					handleRemove();
 					break;
 				case 4:
 					dispatch(variantActive(id));
+					dispatch(sortCoinPrice());
 					handleRemove();
 					break;
 
@@ -63,7 +75,7 @@ export const SortPrices = () => {
 						const { id, label, active } = variant;
 						return (
 							<li
-								onClick={() => handleActiveVariant(id)}
+								onClick={() => handleActiveVariant(id, active)}
 								className={active ? "option selected" : "option"}
 								key={id}>
 								<div className="opt-selected">

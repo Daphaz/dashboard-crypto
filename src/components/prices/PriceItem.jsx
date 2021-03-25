@@ -14,8 +14,6 @@ export const PriceItem = ({ item }) => {
 	const option = optionWidget(item.label, color);
 	const series = seriesWidget(item.series);
 
-	console.log(item);
-
 	return (
 		<div className="prices_row">
 			<div className="prices_cell">
