@@ -36,7 +36,6 @@
 >I don't version the images, and I try as much as possible not to use any image for this project. But if you need the images, contact me .
 
 ```bash
-npm version : 6.14.7
 node version : v14.7.0
 #install
 yarn install

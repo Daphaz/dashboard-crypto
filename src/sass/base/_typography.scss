@@ -80,15 +80,39 @@ body {
 .bg {
 	&-purple {
 		background: $purple;
+		&-gradient {
+			background: linear-gradient(180deg, #a596eb 0%, #6c5dd3 100%);
+		}
 	}
 	&-blue {
 		background: $blue;
+		&-gradient {
+			background: linear-gradient(146.29deg, #b7eaff 14.84%, #57b1e4 92.53%);
+		}
 	}
 	&-green {
 		background: $green;
+		&-gradient {
+			background: linear-gradient(180deg, #86e1a0 0%, #4fbf67 100%);
+		}
 	}
 	&-orange {
 		background: $orange;
+		&-gradient {
+			background: linear-gradient(180deg, #ffce6a 0%, #ff9f38 100%);
+		}
+	}
+	&-pink {
+		background: $pink;
+		&-gradient {
+			background: linear-gradient(180deg, #ffc8f4 0%, #ff98e5 100%);
+		}
+	}
+	&-red {
+		background: $red;
+		&-gradient {
+			background: linear-gradient(180deg, #f0b6ae 0%, #f57d7d 100%);
+		}
 	}
 }
 
