@@ -12,6 +12,8 @@ import {
 	SORT_COIN_GAINERS,
 	SORT_COIN_LOSERS,
 	SORT_COIN_TOP100,
+	SORT_COIN_TOP1H,
+	SORT_COIN_TOP24H,
 } from "./type";
 
 export const loadApiCoins = () => {
@@ -79,6 +81,18 @@ export const sortCoinLosers = () => {
 export const sortCoinTop100 = () => {
 	return {
 		type: SORT_COIN_TOP100,
+	};
+};
+
+export const sortCoinTop1h = () => {
+	return {
+		type: SORT_COIN_TOP1H,
+	};
+};
+
+export const sortCoinTop24h = () => {
+	return {
+		type: SORT_COIN_TOP24H,
 	};
 };
 

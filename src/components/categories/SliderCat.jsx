@@ -8,6 +8,8 @@ import {
 	sortCoinGainers,
 	sortCoinLosers,
 	sortCoinTop100,
+	sortCoinTop1h,
+	sortCoinTop24h,
 } from "../../redux/coins/action";
 
 const options = {
@@ -46,6 +48,14 @@ export const SliderCat = ({ categories }) => {
 
 	const handleClickTop100 = () => {
 		dispatch(sortCoinTop100());
+	};
+
+	const handleClickTop1h = () => {
+		dispatch(sortCoinTop1h());
+	};
+
+	const handleClickTop24h = () => {
+		dispatch(sortCoinTop24h());
 	};
 
 	return (
@@ -101,7 +111,10 @@ export const SliderCat = ({ categories }) => {
 								);
 							case 4:
 								return (
-									<div className="categories_item" key={cat.id}>
+									<div
+										className="categories_item"
+										key={cat.id}
+										onClick={handleClickTop24h}>
 										<div className="categories_preview bg-blue-gradient">
 											<BiBarChartAlt />
 										</div>
@@ -110,7 +123,10 @@ export const SliderCat = ({ categories }) => {
 								);
 							case 5:
 								return (
-									<div className="categories_item" key={cat.id}>
+									<div
+										className="categories_item"
+										key={cat.id}
+										onClick={handleClickTop1h}>
 										<div className="categories_preview bg-orange-gradient">
 											<BiLineChart />
 										</div>

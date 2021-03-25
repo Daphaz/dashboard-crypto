@@ -10,6 +10,8 @@ import {
 	SORT_COIN_GAINERS,
 	SORT_COIN_LOSERS,
 	SORT_COIN_TOP100,
+	SORT_COIN_TOP1H,
+	SORT_COIN_TOP24H,
 } from "./type";
 
 const initialState = {
@@ -75,6 +77,26 @@ const reducerCoins = (state = initialState, action) => {
 		case SORT_COIN_TOP100:
 			const sortTop = state.coins.map((s) => ({ ...s, display: "table-row" }));
 			return { ...state, coins: sortTop };
+		case SORT_COIN_TOP1H:
+			const sortLast1h = state.coins.sort(
+				(a, b) => b.percent1h.value - a.percent1h.value
+			);
+			const sortTop1h = sortLast1h.map((s) =>
+				s.percent1h.status === "positive"
+					? { ...s, display: "table-row" }
+					: { ...s, display: "none" }
+			);
+			return { ...state, coins: sortTop1h };
+		case SORT_COIN_TOP24H:
+			const sortLast24h = state.coins.sort(
+				(a, b) => b.percent24h.value - a.percent24h.value
+			);
+			const sortTop24h = sortLast24h.map((s) =>
+				s.percent24h.status === "positive"
+					? { ...s, display: "table-row" }
+					: { ...s, display: "none" }
+			);
+			return { ...state, coins: sortTop24h };
 
 		default:
 			return state;
