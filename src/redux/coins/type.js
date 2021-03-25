@@ -6,3 +6,6 @@ export const SORT_COIN_VOL = "SORT_COIN_VOL";
 export const SORT_COIN_24 = "SORT_COIN_24";
 export const SORT_COIN_PRICE = "SORT_COIN_PRICE";
 export const SORT_COIN_MC = "SORT_COIN_MC";
+export const SORT_COIN_GAINERS = "SORT_COIN_GAINERS";
+export const SORT_COIN_LOSERS = "SORT_COIN_LOSERS";
+export const SORT_COIN_TOP100 = "SORT_COIN_TOP100";

@@ -15,7 +15,7 @@ export const PriceItem = ({ item }) => {
 	const series = seriesWidget(item.series);
 
 	return (
-		<div className="prices_row">
+		<div className="prices_row" style={{ display: item.display }}>
 			<div className="prices_cell">
 				<button className="btn favorite">
 					<BsStar className="stars stars-outline" />

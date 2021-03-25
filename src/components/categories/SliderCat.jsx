@@ -3,6 +3,12 @@ import OwlCarousel from "react-owl-carousel2";
 import { ImCoinDollar } from "react-icons/im";
 import { GiBoxingGlove, GiChart } from "react-icons/gi";
 import { BiCoinStack, BiLineChart, BiBarChartAlt } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import {
+	sortCoinGainers,
+	sortCoinLosers,
+	sortCoinTop100,
+} from "../../redux/coins/action";
 
 const options = {
 	items: 6,
@@ -28,6 +34,20 @@ const options = {
 };
 
 export const SliderCat = ({ categories }) => {
+	const dispatch = useDispatch();
+
+	const handleClickGainers = () => {
+		dispatch(sortCoinGainers());
+	};
+
+	const handleClickLosers = () => {
+		dispatch(sortCoinLosers());
+	};
+
+	const handleClickTop100 = () => {
+		dispatch(sortCoinTop100());
+	};
+
 	return (
 		<>
 			{categories.length > 0 && (
@@ -36,7 +56,10 @@ export const SliderCat = ({ categories }) => {
 						switch (cat.id) {
 							case 0:
 								return (
-									<div className="categories_item" key={cat.id}>
+									<div
+										className="categories_item"
+										key={cat.id}
+										onClick={handleClickTop100}>
 										<div className="categories_preview bg-red-gradient">
 											<ImCoinDollar />
 										</div>
@@ -54,7 +77,10 @@ export const SliderCat = ({ categories }) => {
 								);
 							case 2:
 								return (
-									<div className="categories_item" key={cat.id}>
+									<div
+										className="categories_item"
+										key={cat.id}
+										onClick={handleClickGainers}>
 										<div className="categories_preview bg-pink-gradient">
 											<GiChart />
 										</div>
@@ -63,7 +89,10 @@ export const SliderCat = ({ categories }) => {
 								);
 							case 3:
 								return (
-									<div className="categories_item" key={cat.id}>
+									<div
+										className="categories_item"
+										key={cat.id}
+										onClick={handleClickLosers}>
 										<div className="categories_preview bg-purple-gradient">
 											<BiCoinStack />
 										</div>

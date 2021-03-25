@@ -7,6 +7,9 @@ import {
 	SORT_COIN_MC,
 	SORT_COIN_PRICE,
 	SORT_COIN_VOL,
+	SORT_COIN_GAINERS,
+	SORT_COIN_LOSERS,
+	SORT_COIN_TOP100,
 } from "./type";
 
 const initialState = {
@@ -55,6 +58,23 @@ const reducerCoins = (state = initialState, action) => {
 				(a, b) => b.total_volumes[0] - a.total_volumes[0]
 			);
 			return { ...state, coins: sortVol };
+		case SORT_COIN_GAINERS:
+			const sortGainers = state.coins.map((s) =>
+				s.percent24h.status === "positive"
+					? { ...s, display: "table-row" }
+					: { ...s, display: "none" }
+			);
+			return { ...state, coins: sortGainers };
+		case SORT_COIN_LOSERS:
+			const sortLosers = state.coins.map((s) =>
+				s.percent24h.status === "negative"
+					? { ...s, display: "table-row" }
+					: { ...s, display: "none" }
+			);
+			return { ...state, coins: sortLosers };
+		case SORT_COIN_TOP100:
+			const sortTop = state.coins.map((s) => ({ ...s, display: "table-row" }));
+			return { ...state, coins: sortTop };
 
 		default:
 			return state;

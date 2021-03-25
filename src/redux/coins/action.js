@@ -9,6 +9,9 @@ import {
 	SORT_COIN_24,
 	SORT_COIN_MC,
 	SORT_COIN_PRICE,
+	SORT_COIN_GAINERS,
+	SORT_COIN_LOSERS,
+	SORT_COIN_TOP100,
 } from "./type";
 
 export const loadApiCoins = () => {
@@ -58,6 +61,24 @@ export const sortCoinMc = () => {
 export const sortCoinPrice = () => {
 	return {
 		type: SORT_COIN_PRICE,
+	};
+};
+
+export const sortCoinGainers = () => {
+	return {
+		type: SORT_COIN_GAINERS,
+	};
+};
+
+export const sortCoinLosers = () => {
+	return {
+		type: SORT_COIN_LOSERS,
+	};
+};
+
+export const sortCoinTop100 = () => {
+	return {
+		type: SORT_COIN_TOP100,
 	};
 };
 
