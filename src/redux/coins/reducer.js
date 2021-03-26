@@ -12,6 +12,7 @@ import {
 	SORT_COIN_TOP100,
 	SORT_COIN_TOP1H,
 	SORT_COIN_TOP24H,
+	SORT_COIN_STABLE,
 } from "./type";
 
 const initialState = {
@@ -97,6 +98,26 @@ const reducerCoins = (state = initialState, action) => {
 					: { ...s, display: "none" }
 			);
 			return { ...state, coins: sortTop24h };
+		case SORT_COIN_STABLE:
+			const sortStable = state.coins.map((st) => {
+				switch (st.id) {
+					case "tether":
+						return { ...st, display: "table-row" };
+					case "usd-coin":
+						return { ...st, display: "table-row" };
+					case "binance-usd":
+						return { ...st, display: "table-row" };
+					case "dai":
+						return { ...st, display: "table-row" };
+					case "terrausd":
+						return { ...st, display: "table-row" };
+					case "paxos-standard":
+						return { ...st, display: "table-row" };
+					default:
+						return { ...st, display: "none" };
+				}
+			});
+			return { ...state, coins: sortStable };
 
 		default:
 			return state;

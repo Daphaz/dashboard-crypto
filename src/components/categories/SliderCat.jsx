@@ -10,6 +10,7 @@ import {
 	sortCoinTop100,
 	sortCoinTop1h,
 	sortCoinTop24h,
+	sortCoinStable,
 } from "../../redux/coins/action";
 
 const options = {
@@ -58,6 +59,10 @@ export const SliderCat = ({ categories }) => {
 		dispatch(sortCoinTop24h());
 	};
 
+	const handleClickStable = () => {
+		dispatch(sortCoinStable());
+	};
+
 	return (
 		<>
 			{categories.length > 0 && (
@@ -78,7 +83,10 @@ export const SliderCat = ({ categories }) => {
 								);
 							case 1:
 								return (
-									<div className="categories_item" key={cat.id}>
+									<div
+										className="categories_item"
+										key={cat.id}
+										onClick={handleClickStable}>
 										<div className="categories_preview bg-green-gradient">
 											<GiBoxingGlove />
 										</div>
