@@ -4,6 +4,17 @@ import {
 	LOAD_DATA_COINS,
 	LOAD_DATA_COINS_ERROR,
 	LOAD_DATA_COINS_SUCESS,
+	SORT_COIN_AZ,
+	SORT_COIN_VOL,
+	SORT_COIN_24,
+	SORT_COIN_MC,
+	SORT_COIN_PRICE,
+	SORT_COIN_GAINERS,
+	SORT_COIN_LOSERS,
+	SORT_COIN_TOP100,
+	SORT_COIN_TOP1H,
+	SORT_COIN_TOP24H,
+	SORT_COIN_STABLE,
 } from "./type";
 
 export const loadApiCoins = () => {
@@ -23,6 +34,72 @@ export const loadCoinsError = (error) => {
 	return {
 		type: LOAD_DATA_COINS_ERROR,
 		payload: error,
+	};
+};
+
+export const sortCoinAz = () => {
+	return {
+		type: SORT_COIN_AZ,
+	};
+};
+
+export const sortCoinVol = () => {
+	return {
+		type: SORT_COIN_VOL,
+	};
+};
+
+export const sortCoin24 = () => {
+	return {
+		type: SORT_COIN_24,
+	};
+};
+
+export const sortCoinMc = () => {
+	return {
+		type: SORT_COIN_MC,
+	};
+};
+
+export const sortCoinPrice = () => {
+	return {
+		type: SORT_COIN_PRICE,
+	};
+};
+
+export const sortCoinGainers = () => {
+	return {
+		type: SORT_COIN_GAINERS,
+	};
+};
+
+export const sortCoinLosers = () => {
+	return {
+		type: SORT_COIN_LOSERS,
+	};
+};
+
+export const sortCoinTop100 = () => {
+	return {
+		type: SORT_COIN_TOP100,
+	};
+};
+
+export const sortCoinTop1h = () => {
+	return {
+		type: SORT_COIN_TOP1H,
+	};
+};
+
+export const sortCoinTop24h = () => {
+	return {
+		type: SORT_COIN_TOP24H,
+	};
+};
+
+export const sortCoinStable = () => {
+	return {
+		type: SORT_COIN_STABLE,
 	};
 };
 
