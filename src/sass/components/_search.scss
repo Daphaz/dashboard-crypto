@@ -38,6 +38,15 @@
 		@include m {
 			max-width: 100%;
 		}
+		.field_errors {
+			position: absolute;
+			bottom: 100%;
+			left: 0;
+			.invalid-feedback {
+				font-size: 1.4rem;
+				color: $white;
+			}
+		}
 	}
 
 	&_input {

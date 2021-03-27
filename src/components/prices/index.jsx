@@ -4,7 +4,7 @@ import { TablePrices } from "./TablePrices";
 
 export const PricesList = ({ coins }) => {
 	const [toggle, setToggle] = useState(true);
-
+	const displayCoin = coins.filter((f) => f.display === "table-row");
 	return (
 		<div className="prices">
 			<div className="prices_head">
@@ -16,10 +16,14 @@ export const PricesList = ({ coins }) => {
 				<SortPrices />
 			</div>
 			<div className="prices_container">
-				<TablePrices showMore={toggle} coins={coins} />
+				<TablePrices
+					showMore={toggle}
+					coins={coins}
+					displayCoin={displayCoin}
+				/>
 			</div>
 			<div className="prices_btns">
-				{toggle && (
+				{toggle && displayCoin.length > 1 && (
 					<button
 						className="btn prices_btn btn_blue"
 						onClick={() => setToggle(!toggle)}>

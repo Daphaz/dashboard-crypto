@@ -15,6 +15,7 @@ import {
 	SORT_COIN_TOP1H,
 	SORT_COIN_TOP24H,
 	SORT_COIN_STABLE,
+	SEARCH_COIN,
 } from "./type";
 
 export const loadApiCoins = () => {
@@ -103,6 +104,13 @@ export const sortCoinStable = () => {
 	};
 };
 
+export const searchCoin = (text) => {
+	return {
+		type: SEARCH_COIN,
+		text,
+	};
+};
+
 let datas;
 
 export const apiCallCoins = () => {
@@ -165,6 +173,7 @@ export const apiCallCoins = () => {
 					label: u.sparkline_in_7d.price.map((e, i) => i),
 					total_volumes: [u.total_volume],
 					market_caps: [u.market_cap],
+					display: "table-row",
 				}));
 
 				const dataEur = eur.map((u) => ({

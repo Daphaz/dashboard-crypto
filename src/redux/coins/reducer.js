@@ -13,6 +13,7 @@ import {
 	SORT_COIN_TOP1H,
 	SORT_COIN_TOP24H,
 	SORT_COIN_STABLE,
+	SEARCH_COIN,
 } from "./type";
 
 const initialState = {
@@ -118,6 +119,18 @@ const reducerCoins = (state = initialState, action) => {
 				}
 			});
 			return { ...state, coins: sortStable };
+		case SEARCH_COIN:
+			const searchCoin = state.coins.map((s) => {
+				if (s.name.toLowerCase() === action.text) {
+					return { ...s, display: "table-row" };
+				}
+				if (s.symbol === action.text) {
+					return { ...s, display: "table-row" };
+				} else {
+					return { ...s, display: "none" };
+				}
+			});
+			return { ...state, coins: searchCoin };
 
 		default:
 			return state;
