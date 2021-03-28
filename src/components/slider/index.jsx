@@ -30,7 +30,7 @@ export const Slider = () => {
 							</button>
 						</div>
 						<div className="slider_preview">
-							<img src="/assets/figures-1.png" alt="slider illustration" />
+							<img src="/assets/slider.png" alt="slider illustration" />
 						</div>
 					</div>
 					<div className="slider_item">
@@ -45,7 +45,7 @@ export const Slider = () => {
 							</button>
 						</div>
 						<div className="slider_preview">
-							<img src="/assets/figures-1.png" alt="slider illustration" />
+							<img src="/assets/slider.png" alt="slider illustration" />
 						</div>
 					</div>
 					<div className="slider_item">
@@ -60,7 +60,7 @@ export const Slider = () => {
 							</button>
 						</div>
 						<div className="slider_preview">
-							<img src="/assets/figures-1.png" alt="slider illustration" />
+							<img src="/assets/slider.png" alt="slider illustration" />
 						</div>
 					</div>
 				</OwlCarousel>

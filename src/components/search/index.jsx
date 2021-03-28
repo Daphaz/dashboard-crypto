@@ -104,7 +104,7 @@ export const Search = () => {
 					</div>
 				</form>
 				<div className="search_preview">
-					<img src="/assets/figures-2.png" alt="banner search prices" />
+					<img src="/assets/search.png" alt="banner search prices" />
 				</div>
 			</div>
 		</div>

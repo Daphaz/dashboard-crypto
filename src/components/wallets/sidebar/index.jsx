@@ -5,6 +5,7 @@ import { BsX, BsThreeDots } from "react-icons/bs";
 import { RiHandCoinLine, RiEditLine } from "react-icons/ri";
 import { IoWalletOutline } from "react-icons/io5";
 import { BiCheck } from "react-icons/bi";
+import { IoLogoBitcoin } from "react-icons/io";
 import Logic from "./Logic";
 
 export const WalletSidebar = ({ balances }) => {
@@ -57,7 +58,9 @@ export const WalletSidebar = ({ balances }) => {
 									<div className="wallets_parameters">
 										<div className="wallets_parameter">
 											<div className="wallets_preview bg-purple">
-												<img src="/assets/bitcoin.svg" alt="bitcoin logo" />
+												<IoLogoBitcoin
+													style={{ color: "#fff", fontSize: "2.4rem" }}
+												/>
 											</div>
 											<div className="wallets_box">
 												<div className="wallets_category">Portfolio</div>
