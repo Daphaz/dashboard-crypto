@@ -2,8 +2,6 @@ import {
 	AiOutlineAppstore,
 	AiOutlineBarChart,
 	AiOutlineWallet,
-	AiOutlineCalculator,
-	AiOutlineRead,
 } from "react-icons/ai";
 
 export const Navigations = [
@@ -24,17 +22,5 @@ export const Navigations = [
 		Icon: AiOutlineWallet,
 		label: "Wallets",
 		path: "/wallets",
-	},
-	{
-		id: 3,
-		Icon: AiOutlineCalculator,
-		label: "Arbitrage",
-		path: "/arbitrage",
-	},
-	{
-		id: 4,
-		Icon: AiOutlineRead,
-		label: "News",
-		path: "/news",
 	},
 ];
