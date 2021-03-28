@@ -2,6 +2,10 @@
 > For this project my challenge is not to use (for the moment) a database,
 > to use redux for the state management of the application. To continue to work on my structure in SCSS and React/Redux.
 
+![screenshot](/screenshot.png)
+
+**[Link of this project](https://dashboard-crypto.vercel.app)**
+
 ## Table of Contents
 
 - [Description](#description)
@@ -21,7 +25,7 @@
 ## Features
 > Here are the main features I want to develop for these projects.
 
-### v0.1.0
+### v0.1.1
 
 - A mode to choose the dark or light theme
 - Overview Trend top 7 crypto with chart and sort sytem in home page

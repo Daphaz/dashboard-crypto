@@ -6,8 +6,12 @@ export const SwitchTheme = () => {
 	const { toggle, toggleDarkTheme } = Logic();
 
 	return (
-		<label className="switch switch_theme">
+		<label
+			htmlFor="themeColor"
+			className="switch switch_theme"
+			aria-label="theme color checkbox">
 			<input
+				id="themeColor"
 				type="checkbox"
 				className="switch_input"
 				checked={toggle}
