@@ -17,7 +17,8 @@ export const CardWidget = ({ history }) => {
 				<div className="card card_widget text-center">
 					<button
 						className="btn card_next"
-						onClick={() => history.push("/wallets")}>
+						onClick={() => history.push("/wallets")}
+						aria-label="go to wallets page">
 						<BiNavigation className="icon" />
 					</button>
 					<div className="card_chart card_chart_total-balance">
@@ -38,6 +39,7 @@ export const CardWidget = ({ history }) => {
 							{totalPriceFormated}
 						</div>
 						<button
+							aria-label="create a new wallet"
 							className="btn card_btn btn_blue"
 							onClick={handleCreateWallet}>
 							Create

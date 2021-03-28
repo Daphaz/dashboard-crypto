@@ -10,7 +10,8 @@ export const Notifications = () => {
 			<div className="header_head active">
 				<button
 					className="btn"
-					onClick={() => toggleActive("header_item-notifications")}>
+					onClick={() => toggleActive("header_item-notifications")}
+					aria-label="notifications">
 					<BiBell className="icon" />
 				</button>
 			</div>

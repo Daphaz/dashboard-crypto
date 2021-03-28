@@ -10,7 +10,8 @@ export const Downloads = () => {
 			<div className="header_head">
 				<button
 					className="btn"
-					onClick={() => toggleActive("header_item-download")}>
+					onClick={() => toggleActive("header_item-download")}
+					aria-label="app mobile links download">
 					<BiDownArrowCircle className="icon" />
 				</button>
 			</div>

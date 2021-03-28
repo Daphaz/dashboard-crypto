@@ -31,12 +31,15 @@ export const Header = ({ border }) => {
 				<Langs />
 				<div className="header_item header_item-signin">
 					<div className="header_head">
-						<button className="btn">
+						<button className="btn" aria-label="user connexion">
 							<VscSignIn className="icon" />
 						</button>
 					</div>
 				</div>
-				<button className="btn header_toggle" onClick={toogleSidebarActive}>
+				<button
+					className="btn header_toggle"
+					onClick={toogleSidebarActive}
+					aria-label="menu">
 					<BiMenuAltRight className="icon" />
 				</button>
 			</div>
