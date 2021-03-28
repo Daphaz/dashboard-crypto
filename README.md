@@ -23,12 +23,10 @@
 
 - A mode to choose the dark or light theme
 - Overview Trend top 7 crypto with chart and sort sytem in home page
-- A small system to help arbitration on the same coin.
 - Create a portfolio with several wallets, to have a follow-up and some information on each crypto.
 - Be able to edit the amount or delete a wallet.
-- A price list with a search system and information.
+- A price list with a search system.
 - A system for changing the main currency on prices.
-- Rss feed on the subject
 
 ---
 
