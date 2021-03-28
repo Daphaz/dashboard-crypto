@@ -31,7 +31,7 @@
 ---
 
 ## How to Use
->I don't version the images, and I try as much as possible not to use any image for this project. But if you need the images, contact me .
+>I don't version the images, and I try as much as possible not to use any image for this project.
 
 ```bash
 node version : v14.7.0
