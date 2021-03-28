@@ -25,7 +25,7 @@
 ## Features
 > Here are the main features I want to develop for these projects.
 
-### v0.1.0
+### v0.1.1
 
 - A mode to choose the dark or light theme
 - Overview Trend top 7 crypto with chart and sort sytem in home page

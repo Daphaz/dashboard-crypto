@@ -25,7 +25,9 @@ export const Slider = () => {
 							<div className="slider_info">
 								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
 							</div>
-							<button className="btn slider_btn btn_white">
+							<button
+								className="btn slider_btn btn_white"
+								aria-label="close slide">
 								Find out more
 							</button>
 						</div>

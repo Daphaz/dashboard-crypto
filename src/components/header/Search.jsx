@@ -10,7 +10,7 @@ export const Search = () => {
 				name="search"
 				placeholder="Search"
 			/>
-			<button type="submit" className="btn">
+			<button type="submit" className="btn" aria-label="search submit">
 				<BiSearch className="icon" />
 			</button>
 		</form>
