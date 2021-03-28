@@ -1,0 +1,93 @@
+.categories {
+	&_title {
+		margin-bottom: 4.8rem;
+	}
+
+	&_container {
+		margin: 0 -1.2rem;
+		@include m {
+			display: none;
+		}
+	}
+
+	&_item {
+		@extend %pointer;
+		display: block;
+		height: 100%;
+		margin: 0 1.2rem;
+		padding: 3.6rem 3.2rem 3.2rem;
+		border-radius: 2rem;
+		background: $white;
+		box-shadow: 0 15px 35px rgb(0 0 0 / 7%);
+		text-align: center;
+		font-size: 1.6rem;
+		line-height: 1.25;
+		font-weight: 600;
+		color: $black;
+		transition: all 0.2s;
+		&:hover {
+			box-shadow: 0 0 0 4px $blue;
+			color: $blue;
+		}
+		@include w {
+			padding: 3.2rem 2.4rem;
+		}
+	}
+
+	&_preview {
+		@extend %flex-center;
+		width: 11.2rem;
+		height: 11.2rem;
+		margin: 0 auto 4rem;
+		border-radius: 50%;
+		svg {
+			fill: $white;
+			font-size: 3.5rem;
+		}
+	}
+
+	.owl-dots {
+		display: flex;
+		justify-content: center;
+		margin-top: 4.6rem;
+	}
+
+	.owl-carousel {
+		.owl-stage {
+			display: flex;
+		}
+		.owl-stage-outer {
+			overflow: visible;
+		}
+		.owl-dot {
+			flex-shrink: 0;
+			width: 24px;
+			height: 2px;
+			border-radius: 1px;
+			background: $gray-light;
+			transition: all 0.2s;
+			&.active {
+				background: $blue;
+			}
+			&:not(:last-child) {
+				margin-right: 4px;
+			}
+		}
+	}
+
+	&_select {
+		@include m {
+			.select {
+				height: 6.4rem;
+				padding-left: 2.4rem;
+				padding-right: 6.4rem;
+				border-radius: 1.6rem;
+				line-height: 6.4rem;
+				font-size: 1.8rem;
+			}
+			.icon-current {
+				right: 2.4rem;
+			}
+		}
+	}
+}

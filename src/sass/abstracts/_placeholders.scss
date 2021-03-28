@@ -1,45 +1,25 @@
-%h1 {
-	font-family: $poppins;
-	font-size: 5.6rem;
-	line-height: (64/56);
-	letter-spacing: -1px;
-	font-weight: 600;
+%flex-align {
+	display: flex;
+	align-items: center;
 }
 
-%h2 {
-	font-family: $poppins;
-	font-size: 4.8rem;
-	line-height: (56/48);
-	letter-spacing: -1px;
-	font-weight: 600;
+%flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-%h3 {
-	font-family: $poppins;
-	font-size: 4rem;
-	line-height: (48/40);
-	letter-spacing: -1px;
-	font-weight: 600;
+%flex-between {
+	display: flex;
+	justify-content: space-between;
 }
 
-%h4 {
-	font-family: $poppins;
-	font-size: 3.2rem;
-	line-height: (40/32);
-	letter-spacing: -0.5px;
-	font-weight: 500;
+%flex-col {
+	display: flex;
+	flex-direction: column;
 }
 
-%h5 {
-	font-family: $poppins;
-	font-size: 2.4rem;
-	line-height: (32/24);
-	font-weight: 500;
-}
-
-%h6 {
-	font-family: $poppins;
-	font-size: 1.8rem;
-	line-height: (24/18);
-	font-weight: 500;
+//Utils
+%pointer {
+	cursor: pointer;
 }

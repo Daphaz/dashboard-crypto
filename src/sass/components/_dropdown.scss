@@ -1,0 +1,80 @@
+.dropdown {
+	position: relative;
+	font-size: 1.4rem;
+	&_head {
+		width: 2.4rem;
+		height: 2.4rem;
+		border-radius: 50%;
+		background: $white;
+		.icon {
+			font-size: 1.2rem;
+			fill: #11142d;
+			transition: fill 0.2s;
+		}
+	}
+	&_body {
+		position: absolute;
+		top: calc(100% + 1.3rem);
+		right: -1.6rem;
+		z-index: 2;
+		min-width: 19.2rem;
+		padding: 2.4rem;
+		border: 1px solid $gray-light;
+		box-shadow: 0 0.5rem 2.5rem rgb(0 0 0 / 7%);
+		border-radius: 2.4rem;
+		background: $white;
+		visibility: hidden;
+		opacity: 0;
+		@include m {
+			top: calc(100% + 5px);
+			right: 0;
+		}
+	}
+	&_link {
+		@extend %pointer;
+		position: relative;
+		display: block;
+		padding-left: 2.8rem;
+		white-space: nowrap;
+		font-size: 1.4rem;
+		line-height: 1.71429;
+		font-weight: 600;
+		color: $gray;
+		transition: color 0.2s;
+		&.selected {
+			color: $blue;
+			.check_drop {
+				opacity: 1;
+			}
+		}
+		&:not(:last-child) {
+			margin-bottom: 8px;
+		}
+		&:hover:not(&.selected) {
+			color: $black;
+		}
+		.check_drop {
+			position: absolute;
+			top: 5px;
+			left: 0;
+			width: 16px;
+			height: 13px;
+			opacity: 0;
+			transition: opacity 0.2s;
+			color: $blue;
+			font-size: 1.6rem;
+		}
+	}
+	&.active {
+		z-index: 5;
+		.dropdown_head {
+			.icon {
+				fill: $blue;
+			}
+		}
+		.dropdown_body {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}

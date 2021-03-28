@@ -1,0 +1,397 @@
+.page {
+	overflow: hidden;
+	&.wide {
+		.page_content {
+			padding-left: 9.6rem;
+		}
+	}
+}
+.page_content {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	padding-left: 25.5rem;
+	transition: padding 0.2s;
+	@include d {
+		padding-left: 9.6rem;
+	}
+	@include t {
+		padding-left: 0;
+		transition: transform 0.2s;
+	}
+}
+
+.page_row {
+	display: flex;
+	flex-grow: 1;
+	@include w {
+		padding: 0 6.4rem 6.4rem;
+	}
+	@include x {
+		padding: 0 4.8rem 6.4rem;
+	}
+	@include d {
+		display: block;
+		padding: 0 6.4rem 6.4rem;
+	}
+	@include m {
+		padding: 0 1.6rem 3.2rem;
+	}
+	.page_col {
+		padding: 0 6.4rem 6.4rem;
+		@include w {
+			padding: 0;
+		}
+		&:first-child {
+			flex: 0 0 calc(100% - 42.6rem);
+			max-width: calc(100% - 42.6rem);
+			@include w {
+				flex: 0 0 calc(100% - 29rem);
+				max-width: calc(100% - 29rem);
+				padding-right: 6.4rem;
+			}
+			@include x {
+				padding-right: 4.8rem;
+			}
+			@include d {
+				max-width: 100%;
+				margin-bottom: 6.4rem;
+				padding: 0;
+			}
+			@include m {
+				margin-bottom: 4.2rem;
+			}
+		}
+		&:nth-child(2) {
+			flex: 0 0 42.6rem;
+			width: 42.6rem;
+			border-left: 1px solid $gray-light;
+			@include w {
+				flex: 0 0 29rem;
+				width: 29rem;
+				border: none;
+			}
+			@include d {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.page.toggle .page_content {
+	@include t {
+		transform: translateX(25.5rem);
+	}
+}
+
+.page_container {
+	padding: 0 6.4rem 6.4rem;
+	@include x {
+		padding: 0 4.8rem 4.8rem;
+	}
+	@include d {
+		padding: 0 6.4rem 6.4rem;
+	}
+	@include m {
+		padding: 0 1.6rem 3.2rem;
+	}
+}
+
+// Dark Mode
+.dark {
+	background: $dark-bg;
+	color: $white;
+	.btn_border {
+		border-color: $dark-border;
+	}
+	.icon_dark {
+		display: block;
+	}
+	.icon_light {
+		display: none;
+	}
+	.chevronLang {
+		color: $white;
+	}
+	.sidebar {
+		background: $dark-bg;
+		border-color: $dark-border;
+
+		&_logo_dark {
+			display: block;
+		}
+
+		&_logo_light {
+			display: none;
+		}
+
+		&_input {
+			background: $dark-active;
+			color: $white;
+		}
+		.icon_search,
+		.icon_close {
+			fill: $gray;
+		}
+		&_item {
+			&:hover {
+				color: $gray-light;
+				.icon {
+					fill: $gray-light;
+				}
+			}
+			&.active {
+				background: $dark-active;
+			}
+		}
+		.switch_box {
+			background: $dark-border;
+		}
+	}
+	.header_logo {
+		&_dark {
+			display: block;
+		}
+		&_light {
+			display: none;
+		}
+	}
+	.header_border:before {
+		background: $dark-border;
+	}
+	.header_item {
+		.header_head {
+			color: $white;
+		}
+		.header_body {
+			border-color: $dark-border;
+			background-color: $dark-color;
+		}
+		&-lang {
+			.header_cel:first-child {
+				border-right: 1px solid $dark-border;
+			}
+		}
+		&-notifications {
+			.header_body {
+				.notification:not(:last-child) {
+					border-bottom: 1px solid $dark-border;
+				}
+			}
+		}
+	}
+	.page_row {
+		.page_col:nth-child(2) {
+			border-left-color: $dark-border;
+		}
+	}
+	.slider {
+		&_btn,
+		&_close {
+			background-color: $dark-color;
+			color: $white;
+			svg {
+				fill: $white;
+			}
+		}
+	}
+	.icon-current {
+		svg {
+			fill: $white;
+		}
+	}
+
+	.select .list {
+		background-color: $dark-active;
+		border: 1px solid $dark-border;
+	}
+	.select:not(.select_empty) {
+		background: rgba(228, 228, 228, 0.03);
+	}
+	.select .option:hover:not(.option.selected) {
+		color: $white;
+	}
+	@include m {
+		.select {
+			background: rgba(228, 228, 228, 0.03);
+		}
+	}
+
+	.widgets {
+		&_variants {
+			.widgets_link.active {
+				background-color: $dark-active;
+			}
+		}
+
+		&_head {
+			border-color: $dark-border;
+		}
+
+		&_item {
+			background: $dark-color;
+		}
+		&_box {
+			background-color: $dark-color;
+		}
+	}
+	.wallets_warpper {
+		background-color: $dark-color;
+		&::before {
+			display: none;
+		}
+		&::after {
+			top: 1rem;
+			left: 1rem;
+			right: 1rem;
+			bottom: -1rem;
+			z-index: -1;
+			background: rgba(36, 39, 49, 0.5);
+		}
+	}
+	.wallets_warp {
+		@include x {
+			background: $dark-color;
+		}
+	}
+	.wallets_item {
+		border-color: $dark-border;
+	}
+	.balances_row:nth-child(2n + 1) {
+		background: rgba(228, 228, 228, 0.04);
+	}
+	.wallets_parameters,
+	.wallets_parameter {
+		border-color: $dark-border;
+	}
+	.wallets_close .icon.icon-close {
+		fill: $gray;
+	}
+	.dropdown {
+		&_head {
+			background: $dark-color;
+			svg {
+				fill: $white;
+			}
+		}
+		&_body {
+			background: $dark-active;
+			border-color: $dark-border;
+		}
+	}
+	.field_input {
+		background: rgba(228, 228, 228, 0.03);
+		color: $white;
+	}
+	.btn_blue {
+		&:disabled {
+			background-color: $dark-color;
+			color: $gray-dark;
+		}
+	}
+	.card {
+		&_widget {
+			background: $dark-color;
+			&::before {
+				background: rgba(36, 39, 49, 0.5);
+			}
+			&::after {
+				display: none;
+			}
+		}
+		&_next {
+			background: $dark-color;
+			border: 1px solid $dark-border;
+			.icon {
+				fill: $white;
+				&:hover {
+					fill: $blue;
+				}
+			}
+		}
+		&_details {
+			border-color: $dark-border;
+		}
+	}
+
+	.categories {
+		&_item {
+			background: $dark-color;
+			color: $white;
+		}
+		.owl-carousel {
+			.owl-dot {
+				background: rgba(255, 255, 255, 0.5);
+			}
+		}
+	}
+
+	.prices_row {
+		color: $white;
+	}
+
+	.prices_row:nth-child(2n + 1) {
+		background: rgba(228, 228, 228, 0.03);
+	}
+}
+
+.no-scroll {
+	overflow: hidden;
+}
+
+.desktop {
+	&-hide {
+		@include d {
+			display: none !important;
+		}
+	}
+	&-show {
+		display: none !important;
+		@include d {
+			display: block !important;
+		}
+	}
+	&-text-right {
+		@include d {
+			text-align: right !important;
+		}
+	}
+}
+
+.tablet {
+	&-hide {
+		@include t {
+			display: none !important;
+		}
+	}
+	&-show {
+		display: none !important;
+		@include t {
+			display: block !important;
+		}
+	}
+	&-text-right {
+		@include t {
+			text-align: right !important;
+		}
+	}
+}
+
+.mobile {
+	&-hide {
+		@include m {
+			display: none !important;
+		}
+	}
+	&-show {
+		display: none !important;
+		@include m {
+			display: block !important;
+		}
+	}
+	&-text-right {
+		@include m {
+			text-align: right !important;
+		}
+	}
+}

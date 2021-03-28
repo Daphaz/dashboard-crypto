@@ -1,0 +1,37 @@
+.icon {
+	font-size: 2.4rem;
+	color: $gray;
+	vertical-align: middle;
+	&_edit {
+		font-size: 1.6rem;
+		fill: $white;
+		margin-right: 8px;
+	}
+	&_wallet {
+		font-size: 1.6rem;
+		fill: $white;
+		color: $white;
+		margin-right: 8px;
+	}
+	&_close {
+		font-size: 1.8rem;
+		fill: $black;
+	}
+	&_search {
+		font-size: 2.4rem;
+		fill: $black;
+		transition: fill 0.2s;
+	}
+	&_dark {
+		display: none;
+		@include d {
+			transform: translateX(-3.3rem);
+		}
+		@include t {
+			transform: translateX(0);
+		}
+	}
+	&_dots {
+		fill: $black;
+	}
+}
